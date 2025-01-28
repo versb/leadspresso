@@ -1,928 +1,1092 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2566">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <!-- 
+      ===========================================================
+      Title: Leadspresso Landing Page (Enhanced)
+      Description: Landing page for Leadspresso, a lead generation
+                   service for NZ financial advisers.
+      Author: Leadspresso Team
+      Date: 2025-01-29
+      ===========================================================
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="High-quality lead generation for New Zealand financial advisers focusing on life, health, income, trauma, mortgage insurance, and KiwiSaver.">
+    <meta name="keywords" content="lead generation, NZ financial advisers, KiwiSaver leads, life insurance, mortgage protection, pay per lead, pay per meeting">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4b2e2e">
+    <meta name="author" content="Leadspresso Team">
+    <title>Leadspresso - Freshly Brewed Insurance & Kiwisaver Leads for NZ Advisers</title>
+
+    <!-- Inline CSS Styles -->
+    <style>
+        /* CSS RESET */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ROOT VARIABLES */
+        :root {
+            --coffee-brown: #4b2e2e;
+            --coffee-brown-light: #634848;
+            --highlight-teal: #3bbfb9;
+            --light-gray: #f9f9f9;
+            --text-color: #333333;
+            --heading-font: 'Helvetica Neue', Arial, sans-serif;
+            --body-font: 'Helvetica Neue', Arial, sans-serif;
+            --max-width: 1200px;
+            --section-padding: 2.5rem 1rem;
+            --button-hover: #2ea5a0;
+            --transition-speed: 0.3s;
+
+            /* Hero background image per request */
+            --espresso-bg: url('https://i.imgur.com/LfJqS6q.jpeg');
+        }
+
+        /* BODY & GLOBAL TAGS */
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        img[loading="lazy"].loaded {
+            opacity: 1;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* HEADER & STICKY NAVIGATION */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--light-gray);
+            border-bottom: 1px solid #eee;
+            z-index: 999;
+        }
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--coffee-brown);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: relative;
+        }
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav li a {
+            font-size: 1rem;
+            padding: 0.5rem;
+            transition: color var(--transition-speed) ease;
+        }
+        nav li a:hover {
+            color: var(--coffee-brown);
+        }
+
+        /* HAMBURGER MENU (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .bar {
+            height: 2px;
+            background-color: var(--coffee-brown);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .mobile-nav.active ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: var(--light-gray);
+            position: absolute;
+            top: calc(100% + 1rem);
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            z-index: 9999;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            /* Coffee-themed background with overlay */
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),
+                var(--espresso-bg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero h1 {
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+            font-family: var(--heading-font);
+            max-width: 700px;
+            animation: fadeInDown 1s forwards;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s forwards;
+        }
+        .btn-primary {
+            background-color: var(--highlight-teal);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: background-color var(--transition-speed) ease;
+        }
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* GENERAL SECTION STYLES */
+        .section {
+            width: 100%;
+            padding: var(--section-padding);
+        }
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--coffee-brown);
+        }
+
+        /* HOW IT WORKS SECTION */
+        .step-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+        .step {
+            text-align: center;
+            padding: 1rem;
+        }
+        .step img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .step img:hover {
+            transform: scale(1.1);
+        }
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-brown);
+        }
+        .step p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* WHY CHOOSE US SECTION */
+        .why-choose {
+            background-color: var(--light-gray);
+            text-align: center;
+            padding: var(--section-padding);
+        }
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .reason {
+            background-color: #fff;
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        .reason:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .reason h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--coffee-brown);
+        }
+        .reason p {
+            font-size: 1rem;
+        }
+
+        /* PRICING SECTION */
+        .pricing {
+            text-align: center;
+        }
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-plan {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        .pricing-plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .plan-header {
+            background-color: var(--coffee-brown-light);
+            color: #fff;
+            padding: 1rem;
+        }
+        .plan-header h3 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        .plan-body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .plan-price {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--coffee-brown);
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        .plan-features li {
+            margin-bottom: 0.75rem;
+            text-align: left;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .plan-features li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-teal);
+        }
+        .btn-primary {
+            align-self: center;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        /* QUALITY LEAD SECTION */
+        .quality-lead {
+            background-color: var(--light-gray);
+            text-align: center;
+            padding: var(--section-padding);
+        }
+        .quality-lead-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .quality-lead-content h2 {
+            margin-bottom: 1.5rem;
+            color: var(--coffee-brown);
+        }
+        .quality-lead-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .quality-lead-content ul li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        .quality-lead-content ul li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-teal);
+        }
+
+        /* FAQ SECTION */
+        .faq-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+        .faq-question {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-brown);
+        }
+        .faq-answer {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ABOUT US SECTION */
+        .about {
+            background-color: var(--light-gray);
+            padding: var(--section-padding);
+            text-align: center;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about h2 {
+            margin-bottom: 2rem;
+            color: var(--coffee-brown);
+        }
+        .about p {
+            margin-bottom: 1rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            width: 100%;
+            text-align: center;
+            padding: var(--section-padding);
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-submit {
+            background-color: var(--coffee-brown);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background-color var(--transition-speed) ease;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 200px;
+        }
+        .form-submit:hover {
+            background-color: var(--coffee-brown-light);
+        }
+
+        /* DISCLAIMER SECTION */
+        .disclaimer-section {
+            background-color: #f5f5f5;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* FOOTER SECTION */
+        footer {
+            background-color: #eee;
+            width: 100%;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            margin: 0 0.5rem;
+            text-decoration: none;
+            color: var(--coffee-brown);
+            font-weight: 500;
+            transition: color var(--transition-speed) ease;
+        }
+        .footer-links a:hover {
+            color: var(--coffee-brown-light);
+        }
+        .footer-disclaimer {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .scroll-top {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--coffee-brown);
+            cursor: pointer;
+            transition: color var(--transition-speed) ease;
+        }
+        .scroll-top:hover {
+            color: var(--coffee-brown-light);
+        }
+
+        /* ANIMATIONS & SCROLL FADE-INS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+            nav ul {
+                display: none;
+            }
+            .mobile-nav.active ul {
+                display: flex;
+            }
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!--<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>===========================================================</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Title: Leadspresso Landing Page</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Description: Landing page for Leadspresso, a lead generation<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                   </span>service for NZ financial advisers.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Author: ChatGPT (OpenAI)</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Date: 2025-01-28</p>
-<p class="p1"><span class="Apple-converted-space">      </span>===========================================================</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="description" content="High-quality lead generation for New Zealand financial advisers focusing on personal insurance and KiwiSaver."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="keywords" content="lead generation, NZ financial advisers, KiwiSaver leads, life insurance, mortgage protection, pay per lead, pay per meeting"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Leadspresso - NZ Financial Adviser Leads&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Inline CSS Styles --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* CSS RESET */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ROOT VARIABLES */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--coffee-brown: #4b2e2e;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--coffee-brown-light: #634848;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--highlight-teal: #3bbfb9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--light-gray: #f9f9f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-color: #333333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--heading-font: 'Helvetica Neue', Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--body-font: 'Helvetica Neue', Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--section-padding: 2rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-padding: 1rem 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--button-hover: #2ea5a0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--transition-speed: 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* BODY &amp; GLOBAL TAGS */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>html, body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: var(--body-font);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* CONTAINER CLASSES */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* HEADER &amp; NAVIGATION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-gray);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #eee;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-wrapper {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo img {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 60px; /* Increased height for a larger logo */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 0.5rem; /* Space between logo and text */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav ul {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav ul li a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: color var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav ul li a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* HERO SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 4rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: var(--heading-font);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.125rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--highlight-teal);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--button-hover);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* GENERAL SECTION STYLES */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: var(--section-padding);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* HOW IT WORKS SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.step-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.step {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex: 1 1 250px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.step img {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 60px; /* Reduced size for smaller images */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 60px; /* Reduced size for smaller images */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.step h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.25rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.step p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* WHY CHOOSE US SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.why-choose {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-gray);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: var(--section-padding);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.reasons {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.reason {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex: 1 1 200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.reason:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.reason h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.25rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.reason p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* PRICING SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pricing {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pricing-table {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pricing-plan {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #eee;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex: 1 1 250px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pricing-plan:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--coffee-brown-light);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-header h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.25rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-grow: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-price {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 1rem 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-features {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0; /* Ensure no default padding */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-features li {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-left: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.plan-features li::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: "✔️";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--highlight-teal);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-self: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 200px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* WHAT MAKES A QUALITY LEAD SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-gray);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: var(--section-padding);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead-content h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead-content ul {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead-content ul li {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-left: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.quality-lead-content ul li::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: "✔️";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--highlight-teal);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* FAQ SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.faq-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.faq-item {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.faq-question {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.125rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.faq-answer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ABOUT US SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-gray);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: var(--section-padding);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem; /* Added padding for better text spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* CONTACT SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.contact-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: var(--section-padding);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem; /* Added padding for better form spacing */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f9f9f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-group {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem; /* Increased margin for better spacing */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-input, .form-textarea {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: inherit; /* Ensure consistent font */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-textarea {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resize: vertical;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-submit {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 1rem; /* Added margin for spacing */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 200px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-submit:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--coffee-brown-light);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* DISCLAIMER SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.disclaimer-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f5f5f5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* FOOTER SECTION */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #eee;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 0.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: color var(--transition-speed) ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--coffee-brown-light);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-disclaimer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* RESPONSIVE STYLES */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.nav-wrapper {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>gap: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.step-container, .reasons, .pricing-table {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>justify-content: center; /* Center the logo and text on small screens */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.quality-lead-content ul {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding-left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.plan-features li {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding-left: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ANIMATIONS */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-in {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeInAnimation 1s forwards;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeInAnimation {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HEADER --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container nav-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Logo and Text Integration --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#hero" class="logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/MrVE7aA.png" alt="Leadspresso Logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Leadspresso</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#how-it-works"&gt;How It Works&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#pricing"&gt;Pricing&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#about"&gt;About Us&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HERO SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero fade-in" id="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;High-Quality Leads for NZ Financial Advisers&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Supercharge your business with qualified prospects seeking Life, Income,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>Health, Trauma, Mortgage Protection, and KiwiSaver advice. Pay only for<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>real leads or booked meetings.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-primary" onclick="scrollToSection('contact')"&gt;Get Started&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HOW IT WORKS SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="how-it-works"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;How It Works&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="step-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/zhhnmmO.png" alt="Outbound Engagement Icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;1. Outbound Engagement&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>We reach out to potential clients via email, phone, and social<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>platforms. Then we gather data on their insurance or KiwiSaver<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>needs.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/DrWFRz4.png" alt="Data Collection Icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;2. Data Collection&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>We filter out low-quality leads, ensuring that you only get<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>prospects who are genuinely interested and ready to talk.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="step fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/fFstdNr.png" alt="Delivery &amp; Conversion Icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;3. Delivery &amp; Conversion&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>We send the qualified leads directly to you, or schedule a<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>meeting in your calendar. You only pay for real, qualified<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>opportunities.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- WHY CHOOSE US SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="why-choose" id="why-choose"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Why Choose Leadspresso?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="reasons"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="reason fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Quality Over Quantity&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>We engage leads personally. If we determine a lead is low<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>quality, you don’t pay a cent.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="reason fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Outbound Specialists&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Our method is not reliant on changing algorithms or ad<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>platforms. We proactively find and qualify your clients.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="reason fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Pay Per Lead / Meeting&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Flexibility: choose a cost-per-lead approach or pay only for<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>booked and attended meetings.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="reason fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;NZ Focused&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>We specialize in serving financial advisers in New Zealand,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>ensuring compliance and local market expertise.</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PRICING SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section pricing" id="pricing"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Pricing Options&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin-bottom: 2rem;"&gt;Simple, flexible, and transparent. Choose what works best for you.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="pricing-table"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Pay Per Lead Plan --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="pricing-plan fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Pay Per Lead&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="plan-price"&gt;&lt;strong&gt;$100 per qualified lead&lt;/strong&gt; that meets strict quality standards&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="plan-price" style="margin-bottom: 1rem;"&gt;&lt;strong&gt;$0 for low-quality leads&lt;/strong&gt; (pay upon conversion)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="plan-features"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;High-Quality, Engaged Leads&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Pay Only for Qualified Prospects&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Free Replacement for Low-Quality Leads&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Ideal for Advisers Scaling Quickly&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="btn-primary" onclick="scrollToSection('contact')"&gt;Sign Up&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Pay Per Meeting Plan --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="pricing-plan fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Pay Per Meeting&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="plan-price"&gt;&lt;strong&gt;$300 per attended meeting&lt;/strong&gt; (requires CRM integration)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="plan-features"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Guaranteed Appointments&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Calendar Integration&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Pay Only if the Meeting Happens&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;No Hidden Costs&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="btn-primary" onclick="scrollToSection('contact')"&gt;Sign Up&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Free Leads Plan --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="pricing-plan fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Free Leads&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="plan-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="plan-price"&gt;&lt;strong&gt;$0&lt;/strong&gt; for leads that do not meet quality standards&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="plan-features"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Receive up to 5 free leads per month&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Test the quality of our leads without any commitment&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Upgrade anytime for more leads and features&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Perfect for new advisers looking to start&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="btn-primary" onclick="scrollToSection('contact')"&gt;Start Free Trial&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- WHAT MAKES A QUALITY LEAD SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="quality-lead" id="quality-lead"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container quality-lead-content fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;What Makes a Quality Lead?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Has a Need:** Such as having kids, existing policies, or a mortgage.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Age Range:** Between 25-70 years old.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Health Status:** No significant health conditions that would prevent obtaining insurance.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Interest:** Actively interested in receiving financial advice.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Income Level:** Annual income above $50K.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;**Engagement:** Demonstrates willingness to engage and discuss financial solutions.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FAQ SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="faq"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container faq-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;How do you generate leads?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We use outbound channels like email, phone, and social outreach.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Our team personally contacts individuals to ensure they are<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>genuinely interested in financial advice before passing them on.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;What if I receive low-quality leads?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We don’t charge you for those. If we mistakenly pass along a lead<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>who isn’t a fit, you won’t pay a cent.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;Do you work with all kinds of insurance?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We primarily focus on personal insurance such as life, income,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>health, trauma, mortgage protection, and KiwiSaver. We do not<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>handle general insurance like car or contents.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;How soon can I expect leads?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Typically, you’ll start receiving leads within a few days of<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>onboarding. This can vary based on the scope of your campaign.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;Is there a long-term contract?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Our services are flexible. You can pause or scale your campaign<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>depending on your business goals.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;How do I pay?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We’ll invoice you periodically based on the leads or meetings<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>delivered. We can discuss payment options that suit you best.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="faq-item fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-question"&gt;Any compliance concerns?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="faq-answer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We’re a lead generation company, not a financial adviser. All<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>actual advice is provided by licensed professionals in New Zealand.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>We adhere to NZ privacy laws when handling client data.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ABOUT US SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="about" id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container about-content fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;About Leadspresso&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Leadspresso was founded by someone who has firsthand experience in<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>growing a fast-paced financial services business. After successfully<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>helping 70+ advisers with consistent, qualified leads—and managing the<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>entire lead generation team—our founder decided to create Leadspresso<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>to elevate the entire financial advisory industry in New Zealand.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>We understand the challenges you face: constantly changing regulations,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>fluctuating advertising costs, and the unpredictability of inbound<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>marketing. That’s why we built an outbound-based solution that delivers<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>consistent results, transparent pricing, and no surprises.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Join us as we supercharge the financial advisory industry across NZ.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CONTACT SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="contact-section" id="contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Ready to Get Started?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin-bottom: 2rem;"&gt;Fill out the form below and we’ll get in touch to discuss your specific needs.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;form id="leadspressoForm" onsubmit="return handleFormSubmit(event)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="name" class="form-label"&gt;Your Name&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="email" class="form-label"&gt;Your Email&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="phone" class="form-label"&gt;Phone Number&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="tel" id="phone" name="phone" class="form-input" placeholder="+64 123 456 789" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="services" class="form-label"&gt;Which services do you offer?&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="services" name="services" class="form-input" placeholder="Life, Income, Health Insurance, KiwiSaver, etc."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="message" class="form-label"&gt;Additional Details&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;textarea id="message" name="message" class="form-textarea" placeholder="Tell us more about what you need..."&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button type="submit" class="form-submit"&gt;Submit&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p id="form-success-message" style="color: green; display: none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Thank you! Your information has been submitted. We'll be in touch soon.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- DISCLAIMER SECTION --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="disclaimer-section fade-in" id="disclaimer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong&gt;Disclaimer:&lt;/strong&gt; Leadspresso is not a registered financial adviser.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>We connect potential clients with licensed financial advisers in New Zealand.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>All advice or services are provided by licensed professionals, not by Leadspresso<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>directly. We adhere to NZ privacy laws (Privacy Act 2020) for all collected data.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FOOTER --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#hero"&gt;Home&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#how-it-works"&gt;How It Works&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#pricing"&gt;Pricing&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#faq"&gt;FAQ&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-disclaimer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&amp;copy; 2025 Leadspresso. All rights reserved.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- SCRIPTS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Smooth scrolling function</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function scrollToSection(sectionId) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const element = document.getElementById(sectionId);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (element) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>element.scrollIntoView({ behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Form submission handler</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function handleFormSubmit(event) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>event.preventDefault();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Collect form data</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const formData = {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>name: document.getElementById('name').value,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>email: document.getElementById('email').value,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>phone: document.getElementById('phone').value,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>services: document.getElementById('services').value,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>message: document.getElementById('message').value</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>console.log("Form Data to be sent to Airtable:", formData);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Display success message</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('form-success-message').style.display = 'block';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Reset form fields</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('leadspressoForm').reset();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>return false; // Prevent actual form submission</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-wrapper">
+            <!-- Logo -->
+            <a href="#hero" class="logo">
+                <img 
+                  src="https://i.imgur.com/MrVE7aA.png" 
+                  alt="Leadspresso Logo - Home link" 
+                  loading="lazy" 
+                  decoding="async"
+                >
+                Leadspresso
+            </a>
+
+            <!-- Hamburger for Mobile -->
+            <div 
+              class="hamburger" 
+              aria-label="Toggle Navigation" 
+              role="button" 
+              tabindex="0" 
+              onclick="toggleMobileNav()"
+            >
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <!-- Navigation -->
+            <nav id="mainNav" class="mobile-nav" role="navigation" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <h1>Your Path to Insurance & Kiwisaver Leads, Brewed Fresh in NZ and Served Fast</h1>
+        <p>
+            Experience a smooth blend of speed and quality with Leadspresso. 
+            We serve up verified KiwiSaver and personal insurance prospects (life, health, income, trauma, mortgage) 
+            for NZ advisers who want to scale—minus the usual hassle.
+        </p>
+        <button class="btn-primary" onclick="scrollToSection('contact')">Get Started</button>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="step-container">
+                <div class="step fade-in">
+                    <img 
+                      src="https://i.imgur.com/zhhnmmO.png" 
+                      alt="Outbound Engagement Icon" 
+                      loading="lazy" 
+                      decoding="async"
+                      onload="this.classList.add('loaded')"
+                    >
+                    <h3>1. One-on-One Cold Outreach</h3>
+                    <p>
+                        We personally reach out to potential clients through direct, 
+                        one-on-one communication—introducing them to the process and 
+                        explaining the value before they arrive at your table.
+                    </p>
+                </div>
+                <div class="step fade-in">
+                    <img 
+                      src="https://i.imgur.com/DrWFRz4.png" 
+                      alt="Data Collection Icon" 
+                      loading="lazy" 
+                      decoding="async"
+                      onload="this.classList.add('loaded')"
+                    >
+                    <h3>2. Data Collection</h3>
+                    <p>
+                        We filter out anyone who’s not actively interested or who 
+                        doesn’t meet our strict criteria, ensuring you receive only 
+                        piping-hot, ready-to-talk leads—no stale beans here.
+                    </p>
+                </div>
+                <div class="step fade-in">
+                    <img 
+                      src="https://i.imgur.com/fFstdNr.png" 
+                      alt="Delivery & Conversion Icon" 
+                      loading="lazy" 
+                      decoding="async"
+                      onload="this.classList.add('loaded')"
+                    >
+                    <h3>3. Delivery & Conversion</h3>
+                    <p>
+                        These freshly brewed, high-quality leads are delivered 
+                        while they’re still hot—straight to your inbox or calendar. 
+                        Choose to pay per lead or per meeting, and we'll handle the rest.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <h2>Why Choose Leadspresso?</h2>
+            <div class="reasons">
+                <!-- Reason 1 -->
+                <div class="reason fade-in">
+                    <h3>Quality Over Quantity</h3>
+                    <p>
+                        We focus on ensuring every lead is a strong match. You pay only 
+                        for those who show genuine interest and meet our proven recipe for 
+                        a good lead. If any lead doesn’t meet that standard, it’s on the 
+                        house—you only pay if it becomes a paying client.
+                    </p>
+                </div>
+                <!-- Reason 2 -->
+                <div class="reason fade-in">
+                    <h3>Outbound Specialists</h3>
+                    <p>
+                        Our “espresso machine” is fueled by proactive outreach—untouched by 
+                        shifting algorithms or ad platform quirks. Because we connect with 
+                        leads personally, they truly understand the process and are ready to go.
+                    </p>
+                </div>
+                <!-- Reason 3 -->
+                <div class="reason fade-in">
+                    <h3>Pay Per Lead or Meeting</h3>
+                    <p>
+                        You control the flavor: choose to pay per lead or for actual 
+                        attended meetings. Whether you want to ramp up volume quickly or 
+                        pay only when someone actually meets with you, we have a model to suit.
+                    </p>
+                </div>
+                <!-- Reason 4 -->
+                <div class="reason fade-in">
+                    <h3>NZ-Focused Financial Experts</h3>
+                    <p>
+                        We’ve generated thousands of KiwiSaver and personal insurance leads 
+                        (including life, health, income, trauma, mortgage) for over 70 advisers. 
+                        We know how to reach the right people, say the right things, 
+                        and filter out the rest.
+                    </p>
+                </div>
+                <!-- New Reason 5 -->
+                <div class="reason fade-in">
+                    <h3>Data-Driven Refinement</h3>
+                    <p>
+                        We collect valuable data from every outreach, interaction, and conversion, 
+                        using these insights to fine-tune our approach. Over time, you benefit 
+                        from higher-quality leads and a deeper understanding of the market.
+                    </p>
+                </div>
+                <!-- New Reason 6 -->
+                <div class="reason fade-in">
+                    <h3>Personal Touch vs. Online Ads</h3>
+                    <p>
+                        In a world where digital ads flood inboxes, we cut through the noise 
+                        with real conversations. This genuine, one-to-one connection fosters 
+                        trust and yields higher-quality leads than typical “click-and-forget” ads.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <h2>Pricing Options</h2>
+            <p style="margin-bottom: 2rem;">
+                Straightforward and flexible—pick the plan that fits your practice best. 
+                Get your leads “express” at the price that suits you.
+            </p>
+            <div class="pricing-table">
+                <!-- Pay Per Lead Plan -->
+                <div class="pricing-plan fade-in">
+                    <div class="plan-header">
+                        <h3>Pay Per Lead</h3>
+                    </div>
+                    <div class="plan-body">
+                        <p class="plan-price"><strong>$100</strong> per quality lead</p>
+                        <ul class="plan-features">
+                            <li>High-Quality, Engaged Leads</li>
+                            <li>Free Replacement for Unfit Leads</li>
+                            <li>Perfect for Rapid Scaling</li>
+                            <li>Only Pay if the Lead is Truly Qualified</li>
+                        </ul>
+                        <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
+                    </div>
+                </div>
+
+                <!-- Pay Per Meeting Plan -->
+                <div class="pricing-plan fade-in">
+                    <div class="plan-header">
+                        <h3>Pay Per Meeting</h3>
+                    </div>
+                    <div class="plan-body">
+                        <p class="plan-price"><strong>$350</strong> per attended meeting</p>
+                        <ul class="plan-features">
+                            <li>Pay Only After the Meeting Occurs</li>
+                            <li>Calendar & CRM Integration</li>
+                            <li>We Send Email and Text Reminders</li>
+                            <li>Great for Advisers Short on Time</li>
+                        </ul>
+                        <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
+                    </div>
+                </div>
+
+                <!-- Free Leads Plan -->
+                <div class="pricing-plan fade-in">
+                    <div class="plan-header">
+                        <h3>Free Trial</h3>
+                    </div>
+                    <div class="plan-body">
+                        <p class="plan-price"><strong>$0</strong> get a taste before you commit</p>
+                        <ul class="plan-features">
+                            <li>Up to 5 Free Leads per Month</li>
+                            <li>Test-Drive Our Process</li>
+                            <li>Upgrade Anytime for More Quality and Volume</li>
+                            <li>Ideal for New Advisers or Sceptics</li>
+                        </ul>
+                        <button class="btn-primary" onclick="scrollToSection('contact')">Start Free Trial</button>
+                    </div>
+                </div>
+            </div>
+            <!-- KiwiSaver Pricing Note -->
+            <p style="margin-top: 2rem; color: var(--coffee-brown);">
+                <strong>Note:</strong> KiwiSaver leads often come at a lower price. 
+                Contact us to discuss specialized pricing and packages for KiwiSaver-only leads.
+            </p>
+        </div>
+    </section>
+
+    <!-- QUALITY LEAD SECTION -->
+    <section class="quality-lead" id="quality-lead">
+        <div class="container quality-lead-content fade-in">
+            <h2>Quality Lead Checklist?</h2>
+            <ul>
+                <li><strong>Relevant Need:</strong> E.g., mortgage, kids, or current policy.</li>
+                <li><strong>Age Range:</strong> 25–65 years old.</li>
+                <li><strong>Health Status:</strong> No major health issues preventing coverage.</li>
+                <li><strong>Interest:</strong> Ready to explore Insurance or KiwiSaver advice.</li>
+                <li><strong>Income Level:</strong> Earning over $50k annually.</li>
+                <li><strong>Current Broker Status:</strong> Not actively working with a broker.</li>
+                <li><strong>Engagement:</strong> Willing to discuss and consider new solutions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section" id="faq">
+        <div class="container faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item fade-in">
+                <div class="faq-question">How do you generate leads?</div>
+                <div class="faq-answer">
+                    We use multiple outbound channels—like a skilled barista mixing 
+                    different ingredients—to reach potential clients. Only those 
+                    genuinely interested in financial advice end up at your table.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">What if I receive low-quality leads?</div>
+                <div class="faq-answer">
+                    We work hard to filter them out, and if any low-quality leads slip 
+                    through, you won’t pay for them. It’s as simple as that.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">Do you cover all types of insurance?</div>
+                <div class="faq-answer">
+                    We focus on personal insurance lines—life, health, income, trauma, 
+                    mortgage—and KiwiSaver. We don’t cover general insurance like car or contents.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">How soon can I expect leads?</div>
+                <div class="faq-answer">
+                    Typically within a few days of your onboarding. We fire up the outbound 
+                    “espresso machine” quickly so you can start receiving prospects.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">Do you require a long-term commitment?</div>
+                <div class="faq-answer">
+                    No. Our service is flexible—pause, scale up, or slow down as your 
+                    business needs evolve.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">How do I handle payments?</div>
+                <div class="faq-answer">
+                    We bill periodically based on delivered leads or attended meetings, 
+                    whichever plan you choose. We’ll discuss payment cycles during onboarding.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">What about compliance?</div>
+                <div class="faq-answer">
+                    We’re a lead generation service, not financial advisers. We follow 
+                    NZ’s Privacy Act 2020 when handling data. Actual advice is provided 
+                    by the registered professionals we connect you with.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about" id="about">
+        <div class="container about-content fade-in">
+            <h2>About Leadspresso</h2>
+            <p>
+                Leadspresso was brewed by a team with deep knowledge of the NZ market. 
+                We’ve helped over 70 advisers secure consistent, qualified leads—just 
+                like serving the perfect espresso shot time and again.
+            </p>
+            <p>
+                We understand the challenges: evolving regulations, unpredictable 
+                advertising costs, and the feast-or-famine cycle of inbound leads. 
+                By focusing on proactive outbound outreach—our unique “espresso bar” 
+                of lead generation—we deliver a steady stream of hot prospects without 
+                hidden fees or sudden changes.
+            </p>
+            <p>
+                Join us in fueling the NZ financial advisory sector with top-tier leads 
+                and unbeatable, express service. Let’s keep your pipeline buzzing with 
+                freshly roasted prospects.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="container fade-in">
+            <h2>Ready for a Fresh Batch of Leads?</h2>
+            <p style="margin-bottom: 2rem;">
+                Fill out the form below, and we’ll tailor a Leadspresso plan that meets 
+                your exact needs.
+            </p>
+            <div class="form-container">
+                <form id="leadspressoForm" method="POST" onsubmit="return handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input 
+                          type="text" 
+                          id="name" 
+                          name="name" 
+                          class="form-input" 
+                          placeholder="John Doe" 
+                          required 
+                          autocomplete="name"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input 
+                          type="email" 
+                          id="email" 
+                          name="email" 
+                          class="form-input" 
+                          placeholder="john@example.com" 
+                          required 
+                          autocomplete="email"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input 
+                          type="tel" 
+                          id="phone" 
+                          name="phone" 
+                          class="form-input" 
+                          placeholder="+64 123 456 789" 
+                          required 
+                          autocomplete="tel"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="services" class="form-label">Which services do you offer?</label>
+                        <input 
+                          type="text" 
+                          id="services" 
+                          name="services" 
+                          class="form-input" 
+                          placeholder="Life, Health, Income Insurance, KiwiSaver, etc."
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Additional Details</label>
+                        <textarea 
+                          id="message" 
+                          name="message" 
+                          class="form-textarea" 
+                          placeholder="Tell us more about your needs..."
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Submit</button>
+                </form>
+                <p id="form-success-message" style="color: green; display: none;">
+                    Thank you! Your information has been submitted. We'll be in touch soon.
+                </p>
+                <noscript>
+                    <p style="color:red;">
+                        Please enable JavaScript to submit this form.
+                    </p>
+                </noscript>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCLAIMER SECTION -->
+    <section class="disclaimer-section fade-in" id="disclaimer">
+        <div class="container">
+            <p>
+                <strong>Disclaimer:</strong> Leadspresso is not a licensed financial adviser. 
+                We connect individuals with qualified advisers across New Zealand. 
+                All advice and services are provided by registered professionals. 
+                We comply with the Privacy Act 2020 in collecting and handling data.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-disclaimer">
+                &copy; 2025 Leadspresso. All rights reserved.
+            </div>
+            <div class="scroll-top" onclick="scrollToSection('hero')">
+                Back to Top &uarr;
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Toggle Mobile Navigation
+        function toggleMobileNav() {
+            const nav = document.getElementById('mainNav');
+            const expanded = nav.classList.toggle('active');
+            nav.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        }
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Intersection Observer for Fade-in Elements
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeEls = document.querySelectorAll('.fade-in');
+            fadeEls.forEach((el) => observer.observe(el));
+
+            // Lazy-load images gracefully
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach((img) => {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+            });
+        });
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                services: document.getElementById('services').value,
+                message: document.getElementById('message').value
+            };
+
+            // In a real scenario, you'd send `formData` to your server or Airtable here
+            console.log("Form Data to be sent:", formData);
+
+            // Display success message
+            document.getElementById('form-success-message').style.display = 'block';
+
+            // Reset form fields
+            document.getElementById('leadspressoForm').reset();
+            return false;
+        }
+    </script>
 </body>
 </html>
