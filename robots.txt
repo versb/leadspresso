@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /scripts/
+Disallow: /internal-search/
+
+Sitemap: https://leadspresso.com/sitemap.xml
