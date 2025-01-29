@@ -50,8 +50,9 @@
       --clr-brand-light: #634848; /* darker coffee */
 
       /* Hero Section Variables */
-      --hero-overlay: rgba(0, 0, 0, 0.3);
+      --hero-overlay: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
       --clr-hero-text: #ffffff; /* White text for hero */
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3); /* Text shadow color */
     }
 
     html.dark {
@@ -67,8 +68,9 @@
       --clr-brand: #9d857f;       /* coffee brown in dark mode */
       --clr-brand-light: #bca39d; /* lighter coffee in dark mode */
 
-      --hero-overlay: rgba(0, 0, 0, 0.3);
+      --hero-overlay: rgba(0, 0, 0, 0.5); /* Consistent overlay in dark mode */
       --clr-hero-text: #ffffff; 
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
     }
 
     /* Global HTML & Body */
@@ -121,13 +123,15 @@
     /* Nav Items */
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem; /* Reduced gap for less clutter */
       list-style: none;
     }
     nav a {
       text-decoration: none;
       color: var(--clr-text);
       transition: color var(--transition-speed);
+      font-size: 0.95rem; /* Slightly smaller font */
+      padding: 0.5rem 0; /* Vertical padding for better tap targets */
     }
     nav a:hover {
       color: var(--clr-accent);
@@ -144,7 +148,7 @@
       font-size: 0.9rem;
       transition: background-color var(--transition-speed);
       text-decoration: none;
-      margin-left: 1rem;
+      margin-left: 0.5rem; /* Reduced margin */
     }
     .header-cta:hover {
       background-color: var(--clr-accent-hover);
@@ -155,12 +159,12 @@
       background: none;
       border: 1px solid var(--clr-border);
       border-radius: 4px;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem; /* Adjusted padding */
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem; /* Slightly smaller font */
       color: var(--clr-text);
       transition: background var(--transition-speed), color var(--transition-speed);
-      margin-left: 1rem;
+      margin-left: 0.5rem; /* Reduced margin */
     }
     .theme-toggle:hover {
       background: var(--clr-accent);
@@ -172,9 +176,9 @@
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px; /* Increased gap for better tap targets */
       cursor: pointer;
-      margin-left: 1rem;
+      margin-left: 0.5rem; /* Reduced margin */
     }
     .bar {
       width: 25px;
@@ -197,7 +201,8 @@
         border: 1px solid var(--clr-border);
         padding: 1rem;
         width: 200px;
-        border-radius: 0 0 0 8px;
+        border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
       }
       nav ul.show {
         display: flex;
@@ -206,12 +211,13 @@
         display: flex;
       }
       .header-cta {
-        margin-left: 0;
+        margin-left: 0; /* Remove left margin on mobile */
       }
     }
 
     /* Hero Section */
     .hero {
+      position: relative; /* To position overlay correctly */
       padding: 4rem 1rem;
       display: flex;
       flex-direction: column;
@@ -226,16 +232,32 @@
       background-position: center;
       color: var(--clr-hero-text);
     }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hero-overlay);
+      z-index: 1;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: var(--clr-hero-text);
+      text-shadow: 2px 2px 4px var(--clr-hero-text-shadow);
     }
     .hero p {
       font-size: 1.125rem;
       margin-bottom: 2rem;
       max-width: 700px;
       color: var(--clr-hero-text);
+      text-shadow: 1px 1px 3px var(--clr-hero-text-shadow);
     }
     .btn-primary {
       background-color: var(--clr-accent);
@@ -551,7 +573,7 @@
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">About</a></li> <!-- Renamed to "About" -->
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -559,7 +581,7 @@
       <!-- CTA Button + Dark/Light Toggle + Mobile Hamburger -->
       <div style="display: flex; align-items: center;">
         <a href="#contact" class="header-cta">Get Started</a>
-        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+        <button class="theme-toggle" onclick="toggleTheme()">Theme</button> <!-- Renamed for brevity -->
 
         <div class="hamburger" onclick="toggleMobileNav()">
           <div class="bar"></div>
@@ -571,7 +593,6 @@
   </header>
 
   <!-- HERO SECTION -->
-  <!-- Add "fade-in" class so it animates in -->
   <section class="hero fade-in" id="hero">
     <h1>Your Path to Insurance & KiwiSaver Leads, Brewed Fresh in NZ</h1>
     <p>
@@ -1002,4 +1023,3 @@
   </script>
 </body>
 </html>
-
