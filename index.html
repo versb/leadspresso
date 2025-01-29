@@ -1,1092 +1,874 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 
-      ===========================================================
-      Title: Leadspresso Landing Page (Enhanced)
-      Description: Landing page for Leadspresso, a lead generation
-                   service for NZ financial advisers.
-      Author: Leadspresso Team
-      Date: 2025-01-29
-      ===========================================================
-    -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="High-quality lead generation for New Zealand financial advisers focusing on life, health, income, trauma, mortgage insurance, and KiwiSaver.">
-    <meta name="keywords" content="lead generation, NZ financial advisers, KiwiSaver leads, life insurance, mortgage protection, pay per lead, pay per meeting">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#4b2e2e">
-    <meta name="author" content="Leadspresso Team">
-    <title>Leadspresso - Freshly Brewed Insurance & Kiwisaver Leads for NZ Advisers</title>
+  <!-- 
+    ===========================================================
+    Title: Leadspresso - Redesigned with Dark/Light Toggle
+    Description: Landing page for Leadspresso, NZ lead generation
+    Author: Leadspresso Team + ChatGPT
+    Date: 2025-01-29
+    ===========================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadspresso - Freshly Brewed Insurance & KiwiSaver Leads</title>
 
-    <!-- Inline CSS Styles -->
-    <style>
-        /* CSS RESET */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Google Fonts: Poppins (Optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
 
-        /* ROOT VARIABLES */
-        :root {
-            --coffee-brown: #4b2e2e;
-            --coffee-brown-light: #634848;
-            --highlight-teal: #3bbfb9;
-            --light-gray: #f9f9f9;
-            --text-color: #333333;
-            --heading-font: 'Helvetica Neue', Arial, sans-serif;
-            --body-font: 'Helvetica Neue', Arial, sans-serif;
-            --max-width: 1200px;
-            --section-padding: 2.5rem 1rem;
-            --button-hover: #2ea5a0;
-            --transition-speed: 0.3s;
+  <!-- Inline CSS -->
+  <style>
+    /* CSS RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-            /* Hero background image per request */
-            --espresso-bg: url('https://i.imgur.com/LfJqS6q.jpeg');
-        }
+    /* 
+      Light & Dark Theme Variables
+      We'll toggle a "dark" class on <html> to switch
+    */
+    :root {
+      --font-body: 'Poppins', sans-serif;
+      --transition-speed: 0.3s;
 
-        /* BODY & GLOBAL TAGS */
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-            font-family: var(--body-font);
-            color: var(--text-color);
-            background-color: #ffffff;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+      /* Light Theme */
+      --clr-bg: #ffffff;
+      --clr-bg-secondary: #f9f9f9;
+      --clr-text: #333333;
+      --clr-accent: #3bbfb9;       /* accent/teal */
+      --clr-accent-hover: #2ea5a0; /* accent hover */
+      --clr-card: #ffffff;
+      --clr-border: #e4e4e4;
 
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      /* Additional brand color for headings */
+      --clr-brand: #4b2e2e;       /* coffee brown */
+      --clr-brand-light: #634848; /* darker coffee */
+    }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-        img[loading="lazy"] {
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        img[loading="lazy"].loaded {
-            opacity: 1;
-        }
+    html.dark {
+      /* Dark Theme Overrides */
+      --clr-bg: #1f1f1f;
+      --clr-bg-secondary: #2a2a2a;
+      --clr-text: #e7e7e7;
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
+      --clr-card: #2a2a2a;
+      --clr-border: #3a3a3a;
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+      --clr-brand: #9d857f;
+      --clr-brand-light: #bca39d;
+    }
 
-        ul {
-            list-style: none;
-        }
+    /* Global HTML & Body */
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: var(--font-body);
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        /* CONTAINER */
-        .container {
-            width: 90%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
+    /* Container Utility */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        /* HEADER & STICKY NAVIGATION */
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background-color: var(--light-gray);
-            border-bottom: 1px solid #eee;
-            z-index: 999;
-        }
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            color: var(--coffee-brown);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .logo img {
-            height: 60px;
-            width: auto;
-            margin-right: 0.5rem;
-        }
+    /* Header / Sticky Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--clr-bg-secondary);
+      z-index: 999;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: var(--clr-brand);
+      font-size: 1.4rem;
+    }
+    .logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 0.5rem;
+    }
 
-        /* NAVIGATION */
-        nav {
-            position: relative;
-        }
-        nav ul {
-            display: flex;
-            gap: 1.5rem;
-        }
-        nav li a {
-            font-size: 1rem;
-            padding: 0.5rem;
-            transition: color var(--transition-speed) ease;
-        }
-        nav li a:hover {
-            color: var(--coffee-brown);
-        }
+    /* Nav Items */
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--clr-text);
+      transition: color var(--transition-speed);
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+    }
 
-        /* HAMBURGER MENU (Mobile) */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            width: 30px;
-            height: 24px;
-            cursor: pointer;
-            gap: 5px;
-        }
-        .bar {
-            height: 2px;
-            background-color: var(--coffee-brown);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        .mobile-nav.active ul {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background-color: var(--light-gray);
-            position: absolute;
-            top: calc(100% + 1rem);
-            left: 0;
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #eee;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            z-index: 9999;
-        }
+    /* Dark/Light Toggle Button */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--clr-border);
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--clr-text);
+      transition: background var(--transition-speed), color var(--transition-speed);
+      margin-left: 1rem;
+    }
+    .theme-toggle:hover {
+      background: var(--clr-accent);
+      color: #fff;
+      border-color: var(--clr-accent);
+    }
 
-        /* HERO SECTION */
-        .hero {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
-            padding: 5rem 1rem;
-            text-align: center;
-            position: relative;
-            /* Coffee-themed background with overlay */
-            background: linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)
-                ),
-                var(--espresso-bg);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .hero h1 {
-            font-size: 2.7rem;
-            margin-bottom: 1rem;
-            font-family: var(--heading-font);
-            max-width: 700px;
-            animation: fadeInDown 1s forwards;
-        }
-        .hero p {
-            font-size: 1.125rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.2s forwards;
-        }
-        .btn-primary {
-            background-color: var(--highlight-teal);
-            color: #ffffff;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: background-color var(--transition-speed) ease;
-        }
-        .btn-primary:hover {
-            background-color: var(--button-hover);
-        }
+    /* Mobile Nav (Hamburger) for narrower widths */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .bar {
+      width: 25px;
+      height: 2px;
+      background-color: var(--clr-brand);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: var(--clr-bg-secondary);
+        border: 1px solid var(--clr-border);
+        padding: 1rem;
+        display: none;
+      }
+      nav.active ul {
+        display: flex;
+      }
+    }
 
-        /* GENERAL SECTION STYLES */
-        .section {
-            width: 100%;
-            padding: var(--section-padding);
-        }
-        .section h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--coffee-brown);
-        }
+    /* Hero Section */
+    .hero {
+      padding: 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)
+      ),
+      url('https://via.placeholder.com/1600x900/4b2e2e/ffffff?text=Hero+Image'); 
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+    .btn-primary {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color var(--transition-speed);
+    }
+    .btn-primary:hover {
+      background-color: var(--clr-accent-hover);
+    }
 
-        /* HOW IT WORKS SECTION */
-        .step-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            justify-items: center;
-        }
-        .step {
-            text-align: center;
-            padding: 1rem;
-        }
-        .step img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        .step img:hover {
-            transform: scale(1.1);
-        }
-        .step h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--coffee-brown);
-        }
-        .step p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
+    /* Section Shared Styles */
+    .section {
+      padding: 3rem 1rem;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--clr-brand);
+      font-size: 2rem;
+    }
+    .section p {
+      margin-bottom: 1rem;
+    }
 
-        /* WHY CHOOSE US SECTION */
-        .why-choose {
-            background-color: var(--light-gray);
-            text-align: center;
-            padding: var(--section-padding);
-        }
-        .reasons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .reason {
-            background-color: #fff;
-            padding: 2rem 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-        }
-        .reason:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        .reason h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--coffee-brown);
-        }
-        .reason p {
-            font-size: 1rem;
-        }
+    /* How It Works */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+    .step-card {
+      background-color: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .step-card img {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    .step-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--clr-brand);
+      font-size: 1.2rem;
+    }
 
-        /* PRICING SECTION */
-        .pricing {
-            text-align: center;
-        }
-        .pricing-table {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .pricing-plan {
-            background-color: #fff;
-            border: 1px solid #eee;
-            border-radius: 6px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-        }
-        .pricing-plan:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        .plan-header {
-            background-color: var(--coffee-brown-light);
-            color: #fff;
-            padding: 1rem;
-        }
-        .plan-header h3 {
-            font-size: 1.25rem;
-            margin: 0;
-        }
-        .plan-body {
-            padding: 1rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .plan-price {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            color: var(--coffee-brown);
-        }
-        .plan-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1rem;
-        }
-        .plan-features li {
-            margin-bottom: 0.75rem;
-            text-align: left;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        .plan-features li::before {
-            content: "✔️";
-            position: absolute;
-            left: 0;
-            color: var(--highlight-teal);
-        }
-        .btn-primary {
-            align-self: center;
-            width: 100%;
-            max-width: 200px;
-        }
+    /* Why Choose Us */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+    .reason-card {
+      background-color: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .reason-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .reason-card h3 {
+      color: var(--clr-brand);
+      margin-bottom: 0.5rem;
+    }
 
-        /* QUALITY LEAD SECTION */
-        .quality-lead {
-            background-color: var(--light-gray);
-            text-align: center;
-            padding: var(--section-padding);
-        }
-        .quality-lead-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .quality-lead-content h2 {
-            margin-bottom: 1.5rem;
-            color: var(--coffee-brown);
-        }
-        .quality-lead-content ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .quality-lead-content ul li {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-        .quality-lead-content ul li::before {
-            content: "✔️";
-            position: absolute;
-            left: 0;
-            color: var(--highlight-teal);
-        }
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+    .pricing-card {
+      background-color: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .pricing-header {
+      background-color: var(--clr-brand);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .pricing-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .plan-price {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: var(--clr-brand);
+    }
+    .plan-features {
+      margin-bottom: 1rem;
+      list-style: none;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    .plan-features li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .plan-features li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--clr-accent);
+    }
+    .btn-primary {
+      align-self: center;
+      margin-top: 1rem;
+      width: 100%;
+      max-width: 200px;
+    }
 
-        /* FAQ SECTION */
-        .faq-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            margin-bottom: 2rem;
-        }
-        .faq-question {
-            font-size: 1.125rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--coffee-brown);
-        }
-        .faq-answer {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
+    /* Quality Lead Checklist */
+    .checklist {
+      list-style: none;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+    .checklist li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .checklist li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--clr-accent);
+    }
 
-        /* ABOUT US SECTION */
-        .about {
-            background-color: var(--light-gray);
-            padding: var(--section-padding);
-            text-align: center;
-        }
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .about h2 {
-            margin-bottom: 2rem;
-            color: var(--coffee-brown);
-        }
-        .about p {
-            margin-bottom: 1rem;
-        }
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 1.5rem;
+    }
+    .faq-question {
+      font-weight: 600;
+      color: var(--clr-brand);
+      margin-bottom: 0.25rem;
+    }
 
-        /* CONTACT SECTION */
-        .contact-section {
-            width: 100%;
-            text-align: center;
-            padding: var(--section-padding);
-        }
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 1rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-        .form-textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        .form-submit {
-            background-color: var(--coffee-brown);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: background-color var(--transition-speed) ease;
-            margin-top: 1rem;
-            width: 100%;
-            max-width: 200px;
-        }
-        .form-submit:hover {
-            background-color: var(--coffee-brown-light);
-        }
+    /* About Section */
+    .about {
+      text-align: center;
+    }
 
-        /* DISCLAIMER SECTION */
-        .disclaimer-section {
-            background-color: #f5f5f5;
-            padding: 2rem 1rem;
-            font-size: 0.9rem;
-            text-align: center;
-        }
+    /* Contact Form */
+    .contact-section {
+      text-align: center;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background-color: var(--clr-bg-secondary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid var(--clr-border);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--clr-border);
+      border-radius: 4px;
+      font: inherit;
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+    }
+    .form-textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    .form-submit {
+      display: inline-block;
+      background-color: var(--clr-brand);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+      margin-top: 1rem;
+    }
+    .form-submit:hover {
+      background-color: var(--clr-brand-light);
+    }
+    #form-success-message {
+      margin-top: 1rem;
+      color: var(--clr-accent);
+      text-align: center;
+    }
 
-        /* FOOTER SECTION */
-        footer {
-            background-color: #eee;
-            width: 100%;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-        .footer-links a {
-            margin: 0 0.5rem;
-            text-decoration: none;
-            color: var(--coffee-brown);
-            font-weight: 500;
-            transition: color var(--transition-speed) ease;
-        }
-        .footer-links a:hover {
-            color: var(--coffee-brown-light);
-        }
-        .footer-disclaimer {
-            font-size: 0.8rem;
-            color: #666;
-        }
-        .scroll-top {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--coffee-brown);
-            cursor: pointer;
-            transition: color var(--transition-speed) ease;
-        }
-        .scroll-top:hover {
-            color: var(--coffee-brown-light);
-        }
+    /* Disclaimer */
+    .disclaimer-section {
+      background-color: var(--clr-bg-secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
 
-        /* ANIMATIONS & SCROLL FADE-INS */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    /* Footer */
+    footer {
+      background-color: var(--clr-bg-secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid var(--clr-border);
+    }
+    .footer-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--clr-text);
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+    .footer-links a:hover {
+      color: var(--clr-accent);
+    }
+    .footer-disclaimer {
+      font-size: 0.8rem;
+      color: var(--clr-text);
+      margin-top: 1rem;
+    }
+    .scroll-top {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--clr-accent);
+      cursor: pointer;
+      transition: color var(--transition-speed);
+    }
+    .scroll-top:hover {
+      color: var(--clr-accent-hover);
+    }
 
-        /* RESPONSIVE STYLES */
-        @media (max-width: 992px) {
-            .hamburger {
-                display: flex;
-            }
-            nav ul {
-                display: none;
-            }
-            .mobile-nav.active ul {
-                display: flex;
-            }
-            .hero {
-                background-attachment: scroll;
-            }
-        }
-    </style>
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="container nav-wrapper">
-            <!-- Logo -->
-            <a href="#hero" class="logo">
-                <img 
-                  src="https://i.imgur.com/MrVE7aA.png" 
-                  alt="Leadspresso Logo - Home link" 
-                  loading="lazy" 
-                  decoding="async"
-                >
-                Leadspresso
-            </a>
 
-            <!-- Hamburger for Mobile -->
-            <div 
-              class="hamburger" 
-              aria-label="Toggle Navigation" 
-              role="button" 
-              tabindex="0" 
-              onclick="toggleMobileNav()"
-            >
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <!-- Logo -->
+      <a href="#hero" class="logo">
+        <img src="https://via.placeholder.com/80x50?text=Logo" alt="Leadspresso Logo" />
+        Leadspresso
+      </a>
 
-            <!-- Navigation -->
-            <nav id="mainNav" class="mobile-nav" role="navigation" aria-label="Main Navigation">
-                <ul>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+      <!-- Navigation -->
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dark/Light Toggle + Mobile Hamburger -->
+      <div style="display: flex; align-items: center;">
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+        <div class="hamburger" onclick="toggleMobileNav()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-        <h1>Your Path to Insurance & Kiwisaver Leads, Brewed Fresh in NZ and Served Fast</h1>
-        <p>
-            Experience a smooth blend of speed and quality with Leadspresso. 
-            We serve up verified KiwiSaver and personal insurance prospects (life, health, income, trauma, mortgage) 
-            for NZ advisers who want to scale—minus the usual hassle.
-        </p>
-        <button class="btn-primary" onclick="scrollToSection('contact')">Get Started</button>
-    </section>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <h1>Your Path to Insurance & KiwiSaver Leads, Brewed Fresh in NZ</h1>
+    <p>
+      Experience a smooth blend of speed and quality with Leadspresso. We serve up verified KiwiSaver and personal insurance prospects (life, health, income, trauma, mortgage) for NZ advisers who want to scale—minus the usual hassle.
+    </p>
+    <button class="btn-primary" onclick="scrollToSection('contact')">Get Started</button>
+  </section>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="section" id="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="step-container">
-                <div class="step fade-in">
-                    <img 
-                      src="https://i.imgur.com/zhhnmmO.png" 
-                      alt="Outbound Engagement Icon" 
-                      loading="lazy" 
-                      decoding="async"
-                      onload="this.classList.add('loaded')"
-                    >
-                    <h3>1. One-on-One Cold Outreach</h3>
-                    <p>
-                        We personally reach out to potential clients through direct, 
-                        one-on-one communication—introducing them to the process and 
-                        explaining the value before they arrive at your table.
-                    </p>
-                </div>
-                <div class="step fade-in">
-                    <img 
-                      src="https://i.imgur.com/DrWFRz4.png" 
-                      alt="Data Collection Icon" 
-                      loading="lazy" 
-                      decoding="async"
-                      onload="this.classList.add('loaded')"
-                    >
-                    <h3>2. Data Collection</h3>
-                    <p>
-                        We filter out anyone who’s not actively interested or who 
-                        doesn’t meet our strict criteria, ensuring you receive only 
-                        piping-hot, ready-to-talk leads—no stale beans here.
-                    </p>
-                </div>
-                <div class="step fade-in">
-                    <img 
-                      src="https://i.imgur.com/fFstdNr.png" 
-                      alt="Delivery & Conversion Icon" 
-                      loading="lazy" 
-                      decoding="async"
-                      onload="this.classList.add('loaded')"
-                    >
-                    <h3>3. Delivery & Conversion</h3>
-                    <p>
-                        These freshly brewed, high-quality leads are delivered 
-                        while they’re still hot—straight to your inbox or calendar. 
-                        Choose to pay per lead or per meeting, and we'll handle the rest.
-                    </p>
-                </div>
-            </div>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <img src="https://via.placeholder.com/60?text=S1" alt="Step 1" />
+          <h3>1. One-on-One Cold Outreach</h3>
+          <p>We personally reach out to potential clients through direct, one-on-one communication—introducing them to the process and explaining the value before they arrive at your table.</p>
         </div>
-    </section>
-
-    <!-- WHY CHOOSE US SECTION -->
-    <section class="why-choose" id="why-choose">
-        <div class="container">
-            <h2>Why Choose Leadspresso?</h2>
-            <div class="reasons">
-                <!-- Reason 1 -->
-                <div class="reason fade-in">
-                    <h3>Quality Over Quantity</h3>
-                    <p>
-                        We focus on ensuring every lead is a strong match. You pay only 
-                        for those who show genuine interest and meet our proven recipe for 
-                        a good lead. If any lead doesn’t meet that standard, it’s on the 
-                        house—you only pay if it becomes a paying client.
-                    </p>
-                </div>
-                <!-- Reason 2 -->
-                <div class="reason fade-in">
-                    <h3>Outbound Specialists</h3>
-                    <p>
-                        Our “espresso machine” is fueled by proactive outreach—untouched by 
-                        shifting algorithms or ad platform quirks. Because we connect with 
-                        leads personally, they truly understand the process and are ready to go.
-                    </p>
-                </div>
-                <!-- Reason 3 -->
-                <div class="reason fade-in">
-                    <h3>Pay Per Lead or Meeting</h3>
-                    <p>
-                        You control the flavor: choose to pay per lead or for actual 
-                        attended meetings. Whether you want to ramp up volume quickly or 
-                        pay only when someone actually meets with you, we have a model to suit.
-                    </p>
-                </div>
-                <!-- Reason 4 -->
-                <div class="reason fade-in">
-                    <h3>NZ-Focused Financial Experts</h3>
-                    <p>
-                        We’ve generated thousands of KiwiSaver and personal insurance leads 
-                        (including life, health, income, trauma, mortgage) for over 70 advisers. 
-                        We know how to reach the right people, say the right things, 
-                        and filter out the rest.
-                    </p>
-                </div>
-                <!-- New Reason 5 -->
-                <div class="reason fade-in">
-                    <h3>Data-Driven Refinement</h3>
-                    <p>
-                        We collect valuable data from every outreach, interaction, and conversion, 
-                        using these insights to fine-tune our approach. Over time, you benefit 
-                        from higher-quality leads and a deeper understanding of the market.
-                    </p>
-                </div>
-                <!-- New Reason 6 -->
-                <div class="reason fade-in">
-                    <h3>Personal Touch vs. Online Ads</h3>
-                    <p>
-                        In a world where digital ads flood inboxes, we cut through the noise 
-                        with real conversations. This genuine, one-to-one connection fosters 
-                        trust and yields higher-quality leads than typical “click-and-forget” ads.
-                    </p>
-                </div>
-            </div>
+        <!-- Step 2 -->
+        <div class="step-card">
+          <img src="https://via.placeholder.com/60?text=S2" alt="Step 2" />
+          <h3>2. Data Collection</h3>
+          <p>We filter out anyone who’s not actively interested or who doesn’t meet our strict criteria, ensuring you receive only piping-hot, ready-to-talk leads—no stale beans here.</p>
         </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section class="section pricing" id="pricing">
-        <div class="container">
-            <h2>Pricing Options</h2>
-            <p style="margin-bottom: 2rem;">
-                Straightforward and flexible—pick the plan that fits your practice best. 
-                Get your leads “express” at the price that suits you.
-            </p>
-            <div class="pricing-table">
-                <!-- Pay Per Lead Plan -->
-                <div class="pricing-plan fade-in">
-                    <div class="plan-header">
-                        <h3>Pay Per Lead</h3>
-                    </div>
-                    <div class="plan-body">
-                        <p class="plan-price"><strong>$100</strong> per quality lead</p>
-                        <ul class="plan-features">
-                            <li>High-Quality, Engaged Leads</li>
-                            <li>Free Replacement for Unfit Leads</li>
-                            <li>Perfect for Rapid Scaling</li>
-                            <li>Only Pay if the Lead is Truly Qualified</li>
-                        </ul>
-                        <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
-                    </div>
-                </div>
-
-                <!-- Pay Per Meeting Plan -->
-                <div class="pricing-plan fade-in">
-                    <div class="plan-header">
-                        <h3>Pay Per Meeting</h3>
-                    </div>
-                    <div class="plan-body">
-                        <p class="plan-price"><strong>$350</strong> per attended meeting</p>
-                        <ul class="plan-features">
-                            <li>Pay Only After the Meeting Occurs</li>
-                            <li>Calendar & CRM Integration</li>
-                            <li>We Send Email and Text Reminders</li>
-                            <li>Great for Advisers Short on Time</li>
-                        </ul>
-                        <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
-                    </div>
-                </div>
-
-                <!-- Free Leads Plan -->
-                <div class="pricing-plan fade-in">
-                    <div class="plan-header">
-                        <h3>Free Trial</h3>
-                    </div>
-                    <div class="plan-body">
-                        <p class="plan-price"><strong>$0</strong> get a taste before you commit</p>
-                        <ul class="plan-features">
-                            <li>Up to 5 Free Leads per Month</li>
-                            <li>Test-Drive Our Process</li>
-                            <li>Upgrade Anytime for More Quality and Volume</li>
-                            <li>Ideal for New Advisers or Sceptics</li>
-                        </ul>
-                        <button class="btn-primary" onclick="scrollToSection('contact')">Start Free Trial</button>
-                    </div>
-                </div>
-            </div>
-            <!-- KiwiSaver Pricing Note -->
-            <p style="margin-top: 2rem; color: var(--coffee-brown);">
-                <strong>Note:</strong> KiwiSaver leads often come at a lower price. 
-                Contact us to discuss specialized pricing and packages for KiwiSaver-only leads.
-            </p>
+        <!-- Step 3 -->
+        <div class="step-card">
+          <img src="https://via.placeholder.com/60?text=S3" alt="Step 3" />
+          <h3>3. Delivery & Conversion</h3>
+          <p>These freshly brewed, high-quality leads are delivered while they’re still hot—straight to your inbox or calendar. Choose to pay per lead or per meeting, and we'll handle the rest.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- QUALITY LEAD SECTION -->
-    <section class="quality-lead" id="quality-lead">
-        <div class="container quality-lead-content fade-in">
-            <h2>Quality Lead Checklist?</h2>
-            <ul>
-                <li><strong>Relevant Need:</strong> E.g., mortgage, kids, or current policy.</li>
-                <li><strong>Age Range:</strong> 25–65 years old.</li>
-                <li><strong>Health Status:</strong> No major health issues preventing coverage.</li>
-                <li><strong>Interest:</strong> Ready to explore Insurance or KiwiSaver advice.</li>
-                <li><strong>Income Level:</strong> Earning over $50k annually.</li>
-                <li><strong>Current Broker Status:</strong> Not actively working with a broker.</li>
-                <li><strong>Engagement:</strong> Willing to discuss and consider new solutions.</li>
+  <!-- WHY CHOOSE US -->
+  <section class="section" style="background-color: var(--clr-bg-secondary);" id="why-choose">
+    <div class="container">
+      <h2>Why Choose Leadspresso?</h2>
+      <div class="reasons-grid">
+        <!-- Reason 1 -->
+        <div class="reason-card">
+          <h3>Quality Over Quantity</h3>
+          <p>We focus on ensuring every lead is a strong match. You pay only for those who show genuine interest and meet our proven recipe for a good lead.</p>
+        </div>
+        <!-- Reason 2 -->
+        <div class="reason-card">
+          <h3>Outbound Specialists</h3>
+          <p>Our “espresso machine” is fueled by proactive outreach—untouched by shifting algorithms or ad platform quirks. Because we connect with leads personally, they truly understand the process.</p>
+        </div>
+        <!-- Reason 3 -->
+        <div class="reason-card">
+          <h3>Pay Per Lead or Meeting</h3>
+          <p>You control the flavor: choose to pay per lead or per attended meeting. Whether you want to ramp up volume quickly or pay only when someone actually meets with you, we have a model to suit.</p>
+        </div>
+        <!-- Reason 4 -->
+        <div class="reason-card">
+          <h3>NZ-Focused Financial Experts</h3>
+          <p>We’ve generated thousands of KiwiSaver and personal insurance leads for over 70 advisers. We know how to reach the right people, say the right things, and filter out the rest.</p>
+        </div>
+        <!-- Reason 5 -->
+        <div class="reason-card">
+          <h3>Data-Driven Refinement</h3>
+          <p>Every outreach, interaction, and conversion is an opportunity to learn. We refine our approach using data insights, so you benefit from higher-quality leads over time.</p>
+        </div>
+        <!-- Reason 6 -->
+        <div class="reason-card">
+          <h3>Personal Touch vs. Online Ads</h3>
+          <p>In a world flooded by digital ads, we cut through the noise with real conversations. This genuine connection fosters trust and yields higher-quality leads than generic “click-and-forget” ads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2>Pricing Options</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+        Straightforward and flexible—pick the plan that fits your practice best. Get your leads “express” at the price that suits you.
+      </p>
+      <div class="pricing-grid">
+        <!-- Plan: Pay Per Lead -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Pay Per Lead</h3>
+          </div>
+          <div class="pricing-body">
+            <p class="plan-price"><strong>$100</strong> per quality lead</p>
+            <ul class="plan-features">
+              <li>High-Quality, Engaged Leads</li>
+              <li>Free Replacement for Unfit Leads</li>
+              <li>Perfect for Rapid Scaling</li>
+              <li>Only Pay if the Lead is Truly Qualified</li>
             </ul>
+            <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
+          </div>
         </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="section" id="faq">
-        <div class="container faq-container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item fade-in">
-                <div class="faq-question">How do you generate leads?</div>
-                <div class="faq-answer">
-                    We use multiple outbound channels—like a skilled barista mixing 
-                    different ingredients—to reach potential clients. Only those 
-                    genuinely interested in financial advice end up at your table.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">What if I receive low-quality leads?</div>
-                <div class="faq-answer">
-                    We work hard to filter them out, and if any low-quality leads slip 
-                    through, you won’t pay for them. It’s as simple as that.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">Do you cover all types of insurance?</div>
-                <div class="faq-answer">
-                    We focus on personal insurance lines—life, health, income, trauma, 
-                    mortgage—and KiwiSaver. We don’t cover general insurance like car or contents.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">How soon can I expect leads?</div>
-                <div class="faq-answer">
-                    Typically within a few days of your onboarding. We fire up the outbound 
-                    “espresso machine” quickly so you can start receiving prospects.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">Do you require a long-term commitment?</div>
-                <div class="faq-answer">
-                    No. Our service is flexible—pause, scale up, or slow down as your 
-                    business needs evolve.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">How do I handle payments?</div>
-                <div class="faq-answer">
-                    We bill periodically based on delivered leads or attended meetings, 
-                    whichever plan you choose. We’ll discuss payment cycles during onboarding.
-                </div>
-            </div>
-            <div class="faq-item fade-in">
-                <div class="faq-question">What about compliance?</div>
-                <div class="faq-answer">
-                    We’re a lead generation service, not financial advisers. We follow 
-                    NZ’s Privacy Act 2020 when handling data. Actual advice is provided 
-                    by the registered professionals we connect you with.
-                </div>
-            </div>
+        <!-- Plan: Pay Per Meeting -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Pay Per Meeting</h3>
+          </div>
+          <div class="pricing-body">
+            <p class="plan-price"><strong>$350</strong> per attended meeting</p>
+            <ul class="plan-features">
+              <li>Pay Only After the Meeting Occurs</li>
+              <li>Calendar & CRM Integration</li>
+              <li>Email and Text Reminders</li>
+              <li>Great for Advisers Short on Time</li>
+            </ul>
+            <button class="btn-primary" onclick="scrollToSection('contact')">Sign Up</button>
+          </div>
         </div>
-    </section>
-
-    <!-- ABOUT US SECTION -->
-    <section class="about" id="about">
-        <div class="container about-content fade-in">
-            <h2>About Leadspresso</h2>
-            <p>
-                Leadspresso was brewed by a team with deep knowledge of the NZ market. 
-                We’ve helped over 70 advisers secure consistent, qualified leads—just 
-                like serving the perfect espresso shot time and again.
-            </p>
-            <p>
-                We understand the challenges: evolving regulations, unpredictable 
-                advertising costs, and the feast-or-famine cycle of inbound leads. 
-                By focusing on proactive outbound outreach—our unique “espresso bar” 
-                of lead generation—we deliver a steady stream of hot prospects without 
-                hidden fees or sudden changes.
-            </p>
-            <p>
-                Join us in fueling the NZ financial advisory sector with top-tier leads 
-                and unbeatable, express service. Let’s keep your pipeline buzzing with 
-                freshly roasted prospects.
-            </p>
+        <!-- Plan: Free Trial -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Free Trial</h3>
+          </div>
+          <div class="pricing-body">
+            <p class="plan-price"><strong>$0</strong> get a taste first</p>
+            <ul class="plan-features">
+              <li>Up to 5 Free Leads per Month</li>
+              <li>Test-Drive Our Process</li>
+              <li>Upgrade Anytime for More Volume</li>
+              <li>Ideal for New Advisers or Skeptics</li>
+            </ul>
+            <button class="btn-primary" onclick="scrollToSection('contact')">Start Free Trial</button>
+          </div>
         </div>
-    </section>
+      </div>
+      <p style="margin-top: 2rem; text-align: center; color: var(--clr-brand);">
+        <strong>Note:</strong> KiwiSaver leads often come at a lower price. Contact us for specialized pricing on KiwiSaver-only leads.
+      </p>
+    </div>
+  </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
-        <div class="container fade-in">
-            <h2>Ready for a Fresh Batch of Leads?</h2>
-            <p style="margin-bottom: 2rem;">
-                Fill out the form below, and we’ll tailor a Leadspresso plan that meets 
-                your exact needs.
-            </p>
-            <div class="form-container">
-                <form id="leadspressoForm" method="POST" onsubmit="return handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Your Name</label>
-                        <input 
-                          type="text" 
-                          id="name" 
-                          name="name" 
-                          class="form-input" 
-                          placeholder="John Doe" 
-                          required 
-                          autocomplete="name"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Your Email</label>
-                        <input 
-                          type="email" 
-                          id="email" 
-                          name="email" 
-                          class="form-input" 
-                          placeholder="john@example.com" 
-                          required 
-                          autocomplete="email"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input 
-                          type="tel" 
-                          id="phone" 
-                          name="phone" 
-                          class="form-input" 
-                          placeholder="+64 123 456 789" 
-                          required 
-                          autocomplete="tel"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="services" class="form-label">Which services do you offer?</label>
-                        <input 
-                          type="text" 
-                          id="services" 
-                          name="services" 
-                          class="form-input" 
-                          placeholder="Life, Health, Income Insurance, KiwiSaver, etc."
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Additional Details</label>
-                        <textarea 
-                          id="message" 
-                          name="message" 
-                          class="form-textarea" 
-                          placeholder="Tell us more about your needs..."
-                        ></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Submit</button>
-                </form>
-                <p id="form-success-message" style="color: green; display: none;">
-                    Thank you! Your information has been submitted. We'll be in touch soon.
-                </p>
-                <noscript>
-                    <p style="color:red;">
-                        Please enable JavaScript to submit this form.
-                    </p>
-                </noscript>
-            </div>
-        </div>
-    </section>
+  <!-- QUALITY LEAD CHECKLIST -->
+  <section class="section" style="background-color: var(--clr-bg-secondary);" id="quality-lead">
+    <div class="container">
+      <h2>Quality Lead Checklist</h2>
+      <ul class="checklist">
+        <li><strong>Relevant Need:</strong> E.g., mortgage, kids, or current policy.</li>
+        <li><strong>Age Range:</strong> 25–65 years old.</li>
+        <li><strong>Health Status:</strong> No major health issues preventing coverage.</li>
+        <li><strong>Interest:</strong> Ready to explore Insurance or KiwiSaver advice.</li>
+        <li><strong>Income Level:</strong> Earning over $50k annually.</li>
+        <li><strong>Current Broker Status:</strong> Not actively working with a broker.</li>
+        <li><strong>Engagement:</strong> Willing to discuss and consider new solutions.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- DISCLAIMER SECTION -->
-    <section class="disclaimer-section fade-in" id="disclaimer">
-        <div class="container">
-            <p>
-                <strong>Disclaimer:</strong> Leadspresso is not a licensed financial adviser. 
-                We connect individuals with qualified advisers across New Zealand. 
-                All advice and services are provided by registered professionals. 
-                We comply with the Privacy Act 2020 in collecting and handling data.
-            </p>
-        </div>
-    </section>
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question">How do you generate leads?</div>
+        <p>We use multiple outbound channels—like a skilled barista mixing different ingredients—to reach potential clients. Only those genuinely interested in financial advice end up at your table.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What if I receive low-quality leads?</div>
+        <p>We work hard to filter them out, and if any low-quality leads slip through, you won’t pay for them. It’s as simple as that.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do you cover all types of insurance?</div>
+        <p>We focus on personal insurance lines—life, health, income, trauma, mortgage—and KiwiSaver. We don’t handle general insurance like car or contents.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How soon can I expect leads?</div>
+        <p>Typically within a few days of your onboarding. We fire up the outbound “espresso machine” quickly so you can start receiving prospects.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is there a long-term commitment?</div>
+        <p>No. Our service is flexible—pause, scale up, or slow down as your business needs evolve.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do I handle payments?</div>
+        <p>We bill periodically based on delivered leads or attended meetings—whichever plan you choose. Payment cycles are discussed during onboarding.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What about compliance?</div>
+        <p>We’re a lead generation service, not financial advisers. We follow NZ’s Privacy Act 2020 when handling data. Actual advice is provided by the registered professionals we connect you with.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#hero">Home</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-disclaimer">
-                &copy; 2025 Leadspresso. All rights reserved.
-            </div>
-            <div class="scroll-top" onclick="scrollToSection('hero')">
-                Back to Top &uarr;
-            </div>
-        </div>
-    </footer>
+  <!-- ABOUT US -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2>About Leadspresso</h2>
+      <p>
+        Leadspresso was brewed by a team with deep knowledge of the NZ market. We’ve helped over 70 advisers secure consistent, qualified leads—just like serving the perfect espresso shot time and again.
+      </p>
+      <p>
+        We understand the challenges: evolving regulations, unpredictable advertising costs, and the feast-or-famine cycle of inbound leads. By focusing on proactive outbound outreach—our unique “espresso bar” of lead generation—we deliver a steady stream of hot prospects without hidden fees or sudden changes.
+      </p>
+      <p>
+        Join us in fueling the NZ financial advisory sector with top-tier leads and unbeatable, express service. Let’s keep your pipeline buzzing with freshly roasted prospects.
+      </p>
+    </div>
+  </section>
 
-    <!-- SCRIPTS -->
-    <script>
-        // Toggle Mobile Navigation
-        function toggleMobileNav() {
-            const nav = document.getElementById('mainNav');
-            const expanded = nav.classList.toggle('active');
-            nav.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        }
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <h2>Ready for a Fresh Batch of Leads?</h2>
+      <p style="max-width: 700px; margin: 0 auto 2rem;">
+        Fill out the form below, and we’ll tailor a Leadspresso plan that meets your exact needs.
+      </p>
+      <div class="form-container">
+        <form id="leadspressoForm" method="POST" onsubmit="return handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              placeholder="John Doe"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="john@example.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="+64 123 456 789"
+              required
+              autocomplete="tel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="services" class="form-label">Which services do you offer?</label>
+            <input
+              type="text"
+              id="services"
+              name="services"
+              class="form-input"
+              placeholder="Life, Health, Income Insurance, KiwiSaver, etc."
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Additional Details</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              placeholder="Tell us more about your needs..."
+            ></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit</button>
+        </form>
+        <p id="form-success-message" style="display: none;">
+          Thank you! Your information has been submitted. We'll be in touch soon.
+        </p>
+        <noscript>
+          <p style="color: red;">Please enable JavaScript to submit this form.</p>
+        </noscript>
+      </div>
+    </div>
+  </section>
 
-        // Smooth scrolling function
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+  <!-- DISCLAIMER -->
+  <section class="disclaimer-section" id="disclaimer">
+    <div class="container">
+      <p>
+        <strong>Disclaimer:</strong> Leadspresso is not a licensed financial adviser. We connect individuals with qualified advisers across New Zealand. All advice and services are provided by registered professionals. We comply with the Privacy Act 2020 in collecting and handling data.
+      </p>
+    </div>
+  </section>
 
-        // Intersection Observer for Fade-in Elements
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-disclaimer">
+        &copy; 2025 Leadspresso. All rights reserved.
+      </div>
+      <div class="scroll-top" onclick="scrollToSection('hero')">
+        Back to Top &uarr;
+      </div>
+    </div>
+  </footer>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeEls = document.querySelectorAll('.fade-in');
-            fadeEls.forEach((el) => observer.observe(el));
+  <!-- SCRIPTS -->
+  <script>
+    // Toggle Mobile Navigation
+    function toggleMobileNav() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
 
-            // Lazy-load images gracefully
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            lazyImages.forEach((img) => {
-                img.addEventListener('load', () => {
-                    img.classList.add('loaded');
-                });
-            });
-        });
+    // Smooth scroll
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
-        // Form submission handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
+    // Dark/Light Theme Toggle
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                services: document.getElementById('services').value,
-                message: document.getElementById('message').value
-            };
+    // Handle Form Submission (Mock)
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        services: document.getElementById('services').value,
+        message: document.getElementById('message').value
+      };
+      // In production, send formData to server or Airtable, etc.
+      console.log("Form Data:", formData);
 
-            // In a real scenario, you'd send `formData` to your server or Airtable here
-            console.log("Form Data to be sent:", formData);
+      // Show success message
+      document.getElementById('form-success-message').style.display = 'block';
 
-            // Display success message
-            document.getElementById('form-success-message').style.display = 'block';
-
-            // Reset form fields
-            document.getElementById('leadspressoForm').reset();
-            return false;
-        }
-    </script>
+      // Reset form
+      e.target.reset();
+      return false;
+    }
+  </script>
 </body>
 </html>
+
