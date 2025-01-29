@@ -125,6 +125,24 @@
       display: flex;
       gap: 1rem; /* Reduced gap for less clutter */
       list-style: none;
+      transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: var(--clr-bg-secondary);
+      border: 1px solid var(--clr-border);
+      padding: 1rem;
+      width: 200px;
+      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+      flex-direction: column;
+    }
+    nav ul.show {
+      max-height: 500px; /* Arbitrary large value to allow full menu */
+      opacity: 1;
     }
     nav a {
       text-decoration: none;
@@ -188,13 +206,10 @@
       transition: all 0.3s ease;
     }
 
-    /* Hide desktop nav on mobile by default */
+    /* Mobile Styles */
     @media (max-width: 768px) {
       nav ul {
-        display: none;
-        position: absolute;
-        top: 60px;  /* Enough space below the header logo/CTA row */
-        right: 0;
+        display: flex;
         flex-direction: column;
         gap: 1rem;
         background-color: var(--clr-bg-secondary);
@@ -203,22 +218,36 @@
         width: 200px;
         border-radius: 0 0 8px 8px; /* Rounded bottom corners */
         box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+        overflow: hidden;
       }
       nav ul.show {
-        display: flex;
+        opacity: 1;
+        max-height: 500px; /* Large enough to display all items */
       }
       .hamburger {
         display: flex;
       }
+      /* Hide original CTA and Theme Toggle in header */
       .header-cta, .theme-toggle {
-        display: none; /* Hide on mobile, show inside menu */
+        display: none;
       }
-      /* Show these inside the mobile menu */
-      nav ul.show .mobile-cta {
+      /* Show CTA and Theme Toggle inside the dropdown */
+      nav ul .mobile-cta, nav ul .mobile-theme-toggle {
         display: block;
       }
-      nav ul.show .mobile-theme-toggle {
-        display: block;
+      .mobile-cta {
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .mobile-theme-toggle {
+        margin-top: 0.5rem;
+        text-align: center;
       }
     }
 
@@ -593,7 +622,7 @@
       </nav>
 
       <!-- Hamburger Menu -->
-      <div class="hamburger" onclick="toggleMobileNav()">
+      <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -970,11 +999,23 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Toggle Mobile Navigation
+    // Toggle Mobile Navigation with Smooth Animation
     function toggleMobileNav() {
       const nav = document.getElementById('mainNav');
       const navUl = nav.querySelector('ul');
-      navUl.classList.toggle('show');
+      const isOpen = navUl.classList.contains('show');
+      
+      if (isOpen) {
+        // Remove 'show' class to initiate closing
+        navUl.classList.remove('show');
+        // Update aria-expanded attribute
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+      } else {
+        // Add 'show' class to initiate opening
+        navUl.classList.add('show');
+        // Update aria-expanded attribute
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'true');
+      }
     }
 
     // Smooth scroll
@@ -982,6 +1023,13 @@
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Close the mobile nav if open
+      const nav = document.getElementById('mainNav');
+      const navUl = nav.querySelector('ul');
+      if (navUl.classList.contains('show')) {
+        navUl.classList.remove('show');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
       }
     }
 
@@ -1029,6 +1077,20 @@
         appearOnScroll.observe(fader);
       });
     });
+
+    // Close the mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.getElementById('mainNav');
+      const navUl = nav.querySelector('ul');
+      const hamburger = document.querySelector('.hamburger');
+      const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
+
+      if (!isClickInside && navUl.classList.contains('show')) {
+        navUl.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
 </body>
 </html>
+
