@@ -6,11 +6,24 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://leadspresso.com/</loc>
   <lastmod>2025-01-29T05:55:06+00:00</lastmod>
 </url>
 
+<url>
+  <loc>https://leadspresso.com/insurance-lead-generation.html</loc>
+  <lastmod>2025-01-29T05:55:06+00:00</lastmod>
+</url>
+
+<url>
+  <loc>https://leadspresso.com/kiwisaver-lead-generation.html</loc>
+  <lastmod>2025-01-29T05:55:06+00:00</lastmod>
+</url>
+
+<url>
+  <loc>https://leadspresso.com/roi-calculator.html</loc>
+  <lastmod>2025-01-29T05:55:06+00:00</lastmod>
+</url>
 
 </urlset>
