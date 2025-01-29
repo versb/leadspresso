@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- 
@@ -47,7 +47,7 @@
 
       /* Additional brand color for headings */
       --clr-brand: #4b2e2e;       /* coffee brown */
-      --clr-brand-light: #634848; /* darker coffee */
+      --clr-brand-light: #634848; /* lighter coffee */
 
       /* Hero Section Variables */
       --hero-overlay: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
@@ -96,14 +96,14 @@
       position: sticky;
       top: 0;
       background-color: var(--clr-bg-secondary);
-      z-index: 999;
+      z-index: 1000;
       border-bottom: 1px solid var(--clr-border);
     }
     .nav-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
+      padding: 0.8rem 0;
       position: relative;
     }
     .logo {
@@ -115,7 +115,7 @@
       text-decoration: none;
     }
     .logo img {
-      height: 50px;
+      height: 40px;
       width: auto;
       margin-right: 0.5rem;
     }
@@ -210,8 +210,15 @@
       .hamburger {
         display: flex;
       }
-      .header-cta {
-        margin-left: 0; /* Remove left margin on mobile */
+      .header-cta, .theme-toggle {
+        display: none; /* Hide on mobile, show inside menu */
+      }
+      /* Show these inside the mobile menu */
+      nav ul.show .mobile-cta {
+        display: block;
+      }
+      nav ul.show .mobile-theme-toggle {
+        display: block;
       }
     }
 
@@ -573,21 +580,23 @@
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#about">About</a></li> <!-- Renamed to "About" -->
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- Mobile-specific CTA and Theme Toggle -->
+          <li class="mobile-cta" style="display: none;">
+            <a href="#contact" class="header-cta">Get Started</a>
+          </li>
+          <li class="mobile-theme-toggle" style="display: none;">
+            <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+          </li>
         </ul>
       </nav>
 
-      <!-- CTA Button + Dark/Light Toggle + Mobile Hamburger -->
-      <div style="display: flex; align-items: center;">
-        <a href="#contact" class="header-cta">Get Started</a>
-        <button class="theme-toggle" onclick="toggleTheme()">Theme</button> <!-- Renamed for brevity -->
-
-        <div class="hamburger" onclick="toggleMobileNav()">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+      <!-- Hamburger Menu -->
+      <div class="hamburger" onclick="toggleMobileNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
     </div>
   </header>
