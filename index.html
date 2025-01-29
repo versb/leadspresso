@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
+<!DOCTYPE html> 
+<html lang="en">
 <head>
   <!-- 
     ===========================================================
-    Title: Leadspresso (Dark Mode by Default)
+    Title: Leadspresso (Light Mode by Default)
     Description: Landing page for Leadspresso
-    Author: Leadspresso Team + ChatGPT
+    Author: Leadspresso Team
     Date: 2025-01-29
     ===========================================================
   -->
@@ -30,13 +30,13 @@
 
     /* 
       Light & Dark Theme Variables
-      We start with <html class="dark">, so dark is default.
+      Light is now the default theme.
     */
     :root {
       --font-body: 'Poppins', sans-serif;
       --transition-speed: 0.3s;
 
-      /* Light Theme (will apply if 'dark' class is removed) */
+      /* Light Theme (default) */
       --clr-bg: #ffffff;
       --clr-bg-secondary: #f9f9f9;
       --clr-text: #333333;
@@ -48,6 +48,10 @@
       /* Additional brand color for headings */
       --clr-brand: #4b2e2e;       /* coffee brown */
       --clr-brand-light: #634848; /* darker coffee */
+
+      /* Hero Section Variables */
+      --hero-overlay: rgba(0, 0, 0, 0.3);
+      --clr-hero-text: #ffffff; /* White text for hero */
     }
 
     html.dark {
@@ -62,6 +66,10 @@
 
       --clr-brand: #9d857f;       /* coffee brown in dark mode */
       --clr-brand-light: #bca39d; /* lighter coffee in dark mode */
+
+      /* Hero Section Variables for Dark Theme */
+      --hero-overlay: rgba(0, 0, 0, 0.3);
+      --clr-hero-text: #ffffff; /* White text remains for dark theme */
     }
 
     /* Global HTML & Body */
@@ -102,6 +110,7 @@
       font-weight: 600;
       color: var(--clr-brand);
       font-size: 1.4rem;
+      text-decoration: none;
     }
     .logo img {
       height: 50px;
@@ -122,6 +131,23 @@
     }
     nav a:hover {
       color: var(--clr-accent);
+    }
+
+    /* CTA Button in Header */
+    .header-cta {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color var(--transition-speed);
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .header-cta:hover {
+      background-color: var(--clr-accent-hover);
     }
 
     /* Dark/Light Toggle Button */
@@ -170,9 +196,15 @@
         border: 1px solid var(--clr-border);
         padding: 1rem;
         display: none;
+        width: 200px;
       }
       nav.active ul {
         display: flex;
+      }
+      .header-cta {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
       }
     }
 
@@ -184,23 +216,24 @@
       align-items: center;
       text-align: center;
       background: linear-gradient(
-        rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)
+        var(--hero-overlay),
+        var(--hero-overlay)
       ),
       url('https://i.imgur.com/LfJqS6q.jpeg'); /* Original Hero Background */
       background-size: cover;
       background-position: center;
-      color: #fff;
+      color: var(--clr-hero-text);
     }
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #fff;
+      color: var(--clr-hero-text);
     }
     .hero p {
       font-size: 1.125rem;
       margin-bottom: 2rem;
       max-width: 700px;
+      color: var(--clr-hero-text);
     }
     .btn-primary {
       background-color: var(--clr-accent);
@@ -510,8 +543,9 @@
         </ul>
       </nav>
 
-      <!-- Dark/Light Toggle + Mobile Hamburger -->
+      <!-- CTA Button + Dark/Light Toggle + Mobile Hamburger -->
       <div style="display: flex; align-items: center;">
+        <a href="#contact" class="header-cta">Get Started</a>
         <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
         <div class="hamburger" onclick="toggleMobileNav()">
@@ -934,3 +968,4 @@
   </script>
 </body>
 </html>
+
