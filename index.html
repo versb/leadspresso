@@ -1,77 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GGEW9EK365"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GGEW9EK365');
-</script>
-  <!-- 
-    ===========================================================
-    Title: Leadspresso - Insurance & KiwiSaver Appointments
-    Description: Redesigned "What Data We Provide" section with Font Awesome
-    Author: Leadspresso Team
-    Date: 2025-01-29
-    ===========================================================
-  -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--===========================================================
+  Title: Leadspresso - Insurance & KiwiSaver Appointments
+  Description: Redesigned "What Data We Provide" section with Font Awesome
+  Author: Leadspresso Team
+  Date: 2025-01-29
+  ===========================================================-->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Leadspresso - Insurance & KiwiSaver Appointments That Show Up</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/MrVE7aA.png">
-
-
   <!-- Font Awesome Kit -->
   <script src="https://kit.fontawesome.com/88549566b0.js" crossorigin="anonymous"></script>
-
   <!-- Google Fonts: Poppins (Optional) -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
-
   <!-- Inline CSS -->
   <style>
-    /* CSS RESET */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    /* 
-      Light & Dark Theme Variables
-      Light is default
-    */
     :root {
       --font-body: 'Poppins', sans-serif;
       --transition-speed: 0.3s;
-
-      /* Light Theme (default) */
       --clr-bg: #ffffff;
       --clr-bg-secondary: #f9f9f9;
       --clr-text: #333333;
-      --clr-accent: #3bbfb9;       /* accent/teal */
-      --clr-accent-hover: #2ea5a0; /* accent hover */
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
       --clr-card: #ffffff;
       --clr-border: #e4e4e4;
-
-      /* Slightly refined brand color & lighter shade */
-      --clr-brand: #4a302f;       
+      --clr-brand: #4a302f;
       --clr-brand-light: #6b4d4d;
-
-      /* Hero Section Variables */
       --hero-overlay: rgba(0, 0, 0, 0.4);
       --clr-hero-text: #ffffff;
       --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
     }
-
     html.dark {
-      /* Dark Theme Overrides */
       --clr-bg: #1f1f1f;
       --clr-bg-secondary: #2a2a2a;
       --clr-text: #e7e7e7;
@@ -79,17 +51,14 @@
       --clr-accent-hover: #2ea5a0;
       --clr-card: #2a2a2a;
       --clr-border: #3a3a3a;
-
-      --clr-brand: #b79c97;       
+      --clr-brand: #b79c97;
       --clr-brand-light: #d1b7b3;
-
       --hero-overlay: rgba(0, 0, 0, 0.4);
       --clr-hero-text: #ffffff;
       --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
     }
-
-    /* Global HTML & Body */
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100%;
       font-family: var(--font-body);
@@ -98,16 +67,12 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-
-    /* Container Utility */
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
       padding: 0 0.5rem;
     }
-
-    /* Header / Sticky Nav */
     header {
       position: sticky;
       top: 0;
@@ -139,8 +104,6 @@
     .logo:hover {
       color: var(--clr-accent);
     }
-
-    /* Navigation */
     nav {
       display: flex;
       align-items: center;
@@ -164,8 +127,6 @@
     nav a:hover {
       color: var(--clr-accent);
     }
-
-    /* CTA Button in Header */
     .header-cta {
       background-color: var(--clr-accent);
       color: #fff;
@@ -183,8 +144,6 @@
       background-color: var(--clr-accent-hover);
       transform: scale(1.03);
     }
-
-    /* Dark/Light Toggle Button */
     .theme-toggle {
       background: none;
       border: 1px solid var(--clr-border);
@@ -201,8 +160,6 @@
       color: #fff;
       border-color: var(--clr-accent);
     }
-
-    /* Hamburger Menu */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -217,13 +174,10 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
-
-    /* Mobile Styles */
-    /* Hide mobile-specific buttons on desktop */
-    .mobile-cta, .mobile-theme-toggle {
+    .mobile-cta,
+    .mobile-theme-toggle {
       display: none;
     }
-
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -233,7 +187,7 @@
         padding: 1rem;
         width: 200px;
         border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: absolute;
         top: 60px;
         right: 0;
@@ -241,7 +195,7 @@
         max-height: 0;
         transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
         overflow: hidden;
-        display: none; /* Initially hidden */
+        display: none;
         z-index: 999;
       }
       nav ul.show {
@@ -252,12 +206,11 @@
       .hamburger {
         display: flex;
       }
-      /* Hide original buttons in header on mobile */
       .header-buttons {
         display: none;
       }
-      /* Show CTA and Theme Toggle inside the dropdown */
-      .mobile-cta, .mobile-theme-toggle {
+      .mobile-cta,
+      .mobile-theme-toggle {
         display: block;
         width: 100%;
         text-align: center;
@@ -267,8 +220,6 @@
         display: inline-block;
       }
     }
-
-    /* Hero Section */
     .hero {
       position: relative;
       padding: 6rem 1rem;
@@ -276,11 +227,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      background: linear-gradient(
-        var(--hero-overlay),
-        var(--hero-overlay)
-      ),
-      url('https://i.imgur.com/LfJqS6q.jpeg') no-repeat center / cover;
+      background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://i.imgur.com/LfJqS6q.jpeg') no-repeat center/cover;
       color: var(--clr-hero-text);
     }
     .hero::before {
@@ -326,8 +273,6 @@
       background-color: var(--clr-accent-hover);
       transform: scale(1.03);
     }
-
-    /* Section Shared Styles */
     .section {
       padding: 3.5rem 1rem;
     }
@@ -342,8 +287,6 @@
       margin-bottom: 1rem;
       line-height: 1.7;
     }
-
-    /* "fade-in" reusable animation classes */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -353,8 +296,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* HOW IT WORKS */
     .how-it-works-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -370,10 +311,10 @@
     }
     .how-step:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
     .how-step i {
-      font-size: 2.2rem; 
+      font-size: 2.2rem;
       color: var(--clr-accent);
       margin-bottom: 0.8rem;
     }
@@ -383,8 +324,6 @@
       font-size: 1.25rem;
       font-weight: 600;
     }
-
-    /* WHY CHOOSE US */
     .reasons-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -404,7 +343,7 @@
     }
     .reason-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
     .reason-card h3 {
       color: var(--clr-brand);
@@ -416,8 +355,6 @@
       flex: 1;
       font-size: 0.95rem;
     }
-
-    /* WHAT DATA WE PROVIDE (Redesigned) */
     .data-section {
       background-color: var(--clr-bg-secondary);
       padding: 4rem 1rem;
@@ -446,7 +383,7 @@
     }
     .data-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
     .data-icon {
       font-size: 2rem;
@@ -466,8 +403,6 @@
       font-size: 0.95rem;
       line-height: 1.4;
     }
-
-    /* PRICING */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -484,7 +419,7 @@
     }
     .pricing-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
     .pricing-header {
       background-color: var(--clr-brand);
@@ -531,8 +466,6 @@
       width: 100%;
       max-width: 200px;
     }
-
-    /* QUALITY LEAD CHECKLIST */
     .checklist {
       list-style: none;
       max-width: 600px;
@@ -550,8 +483,6 @@
       left: 0;
       color: var(--clr-accent);
     }
-
-    /* FAQ - Accordion Style */
     .faq-item {
       margin-bottom: 1.5rem;
       border: 1px solid var(--clr-border);
@@ -584,13 +515,9 @@
       max-height: 500px;
       padding: 0.75rem 1rem;
     }
-
-    /* ABOUT Section */
     .about {
       text-align: center;
     }
-
-    /* CONTACT Form */
     .contact-section {
       text-align: center;
     }
@@ -646,16 +573,12 @@
       color: var(--clr-accent);
       text-align: center;
     }
-
-    /* DISCLAIMER */
     .disclaimer-section {
       background-color: var(--clr-bg-secondary);
       padding: 2rem 1rem;
       text-align: center;
       font-size: 0.9rem;
     }
-
-    /* FOOTER */
     footer {
       background-color: var(--clr-bg-secondary);
       padding: 2rem 1rem;
@@ -689,8 +612,6 @@
       color: var(--clr-accent-hover);
       transform: scale(1.05);
     }
-
-    /* Responsive Adjustments */
     @media (max-width: 992px) {
       .hero h1 {
         font-size: 2.2rem;
@@ -705,23 +626,110 @@
         font-size: 1.4rem;
       }
     }
+
+    /* ---------- ADDED: Resources Section + modal for ROI Calculator ---------- */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .resource-card {
+      background-color: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      text-align: left;
+    }
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .resource-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .resource-card h3 {
+      margin: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--clr-brand);
+    }
+    .resource-card p {
+      margin: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .resource-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+    .resource-calculator {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .resource-calculator h3 {
+      margin-bottom: 0.5rem;
+      color: var(--clr-brand);
+    }
+    .resource-calculator p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Modal styling */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; 
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 1rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 6px;
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-
   <!-- HEADER -->
   <header>
     <div class="container nav-wrapper">
       <!-- Logo -->
       <a href="#hero" class="logo">
-        <img 
-          src="https://i.imgur.com/MrVE7aA.png" 
-          alt="Leadspresso Logo" 
+        <img
+          src="https://i.imgur.com/MrVE7aA.png"
+          alt="Leadspresso Logo"
           loading="lazy"
         />
         Leadspresso
       </a>
-
       <!-- Navigation -->
       <nav id="mainNav">
         <ul>
@@ -731,6 +739,11 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+
+          <!-- ADDED: Resources & ROI Calculator in mobile menu -->
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#" onclick="openCalculatorPopup()">ROI Calculator</a></li>
+
           <!-- Mobile-specific CTA and Theme Toggle -->
           <li class="mobile-cta">
             <a href="#contact" class="header-cta">Get in Touch</a>
@@ -740,12 +753,17 @@
           </li>
         </ul>
       </nav>
-
       <!-- Buttons and Hamburger Menu -->
       <div class="header-buttons">
         <a href="#contact" class="header-cta">Get in Touch</a>
         <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
-        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
+        <div
+          class="hamburger"
+          onclick="toggleMobileNav()"
+          aria-label="Toggle navigation"
+          role="button"
+          aria-expanded="false"
+        >
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
@@ -758,9 +776,10 @@
   <section class="hero fade-in" id="hero">
     <h1>Insurance & KiwiSaver Appointments That Actually Show</h1>
     <p>
-      Tired of wasted leads and no-shows? With Leadspresso, you only pay for 
-      clients who turn up—real, confirmed appointments for personal insurance 
-      and KiwiSaver. No more guesswork or ghosting.
+      Tired of wasted leads and no-shows? With Leadspresso,
+      you only pay for clients who turn up—real, confirmed
+      appointments for personal insurance and KiwiSaver.
+      No more guesswork or ghosting.
     </p>
     <button class="btn-primary" onclick="scrollToSection('contact')">Get in Touch</button>
   </section>
@@ -774,14 +793,15 @@
           <i class="fa fa-bullhorn"></i>
           <h3>1. We Reach Out</h3>
           <p>
-            Our team directly finds and contacts potential prospects to confirm genuine interest in insurance or KiwiSaver.
+            Our team directly finds and contacts potential prospects 
+            to confirm genuine interest in insurance or KiwiSaver.
           </p>
         </div>
         <div class="how-step">
           <i class="fa fa-filter"></i>
           <h3>2. We Qualify</h3>
           <p>
-            We apply a proven checklist to vet each individual, ensuring 
+            We apply a proven checklist to vet each individual, ensuring
             only high-quality prospects end up on your calendar.
           </p>
         </div>
@@ -789,7 +809,7 @@
           <i class="fa fa-calendar-check"></i>
           <h3>3. We Schedule</h3>
           <p>
-            We handle the scheduling and reminders. If they don’t attend, 
+            We handle the scheduling and reminders. If they don’t attend,
             you don’t pay—that’s our promise.
           </p>
         </div>
@@ -806,7 +826,7 @@
         <div class="reason-card">
           <h3>Appointments, Not Leads</h3>
           <p>
-            Get real calendar bookings from people who’ve agreed 
+            Get real calendar bookings from people who’ve agreed
             to meet with you—no "pay and pray" leads here.
           </p>
         </div>
@@ -814,8 +834,8 @@
         <div class="reason-card">
           <h3>Outbound Specialists</h3>
           <p>
-            We focus on personal outreach—through calls and texts—so 
-            your prospects know exactly why they’re meeting you.
+            We focus on personal outreach—through calls and texts—
+            so your prospects know exactly why they’re meeting you.
           </p>
         </div>
         <!-- Reason 3 -->
@@ -830,7 +850,7 @@
         <div class="reason-card">
           <h3>Deep Prospect Insights</h3>
           <p>
-            We gather detailed info so you’ll know their background 
+            We gather detailed info so you’ll know their background
             and priorities even before you chat.
           </p>
         </div>
@@ -838,7 +858,7 @@
         <div class="reason-card">
           <h3>NZ-Focused Expertise</h3>
           <p>
-            Having organized thousands of local appointments, our 
+            Having organized thousands of local appointments, our
             approach is tailored to the New Zealand market.
           </p>
         </div>
@@ -846,7 +866,7 @@
         <div class="reason-card">
           <h3>Personal Touch, Not Ads</h3>
           <p>
-            We build trust through real conversations, not 
+            We build trust through real conversations, not
             generic digital ads that often attract tire-kickers.
           </p>
         </div>
@@ -854,7 +874,7 @@
         <div class="reason-card">
           <h3>Non-Standard Leads for Practice</h3>
           <p>
-            Perfect for training new staff—these leads are free 
+            Perfect for training new staff—these leads are free
             until they convert, at which point you pay a 20% commission.
           </p>
         </div>
@@ -867,7 +887,7 @@
     <div class="container">
       <h2>What Data We Provide</h2>
       <p class="data-intro">
-        Don’t go in blind. Every appointment includes a detailed profile, 
+        Don’t go in blind. Every appointment includes a detailed profile,
         giving you the who, what, and why before you even pick up the phone.
       </p>
       <div class="data-list">
@@ -885,7 +905,7 @@
           <div class="data-details">
             <h4>Current Coverage</h4>
             <p>
-              Understand their existing insurance or KiwiSaver 
+              Understand their existing insurance or KiwiSaver
               status, so you can tailor advice from the outset.
             </p>
           </div>
@@ -895,7 +915,7 @@
           <div class="data-details">
             <h4>Financial Snapshot</h4>
             <p>
-              Income range, mortgage status, and family details 
+              Income range, mortgage status, and family details
               that help shape suitable solutions.
             </p>
           </div>
@@ -905,7 +925,7 @@
           <div class="data-details">
             <h4>Key Concerns & Goals</h4>
             <p>
-              From health worries to retirement plans, you’ll know 
+              From health worries to retirement plans, you’ll know
               exactly why they’re seeking advice.
             </p>
           </div>
@@ -915,8 +935,7 @@
           <div class="data-details">
             <h4>Interaction History</h4>
             <p>
-              Full timeline of outreach attempts, follow-ups, 
-              and any notes we’ve gathered.
+              Full timeline of outreach attempts, follow-ups, and any notes we’ve gathered.
             </p>
           </div>
         </div>
@@ -925,7 +944,7 @@
           <div class="data-details">
             <h4>Special Requirements</h4>
             <p>
-              Notes on health conditions, unique coverage requests, 
+              Notes on health conditions, unique coverage requests,
               or life events—flagged well in advance.
             </p>
           </div>
@@ -939,8 +958,8 @@
     <div class="container">
       <h2>Our Simple Pricing</h2>
       <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-        Tired of pouring money into leads who never show? With Leadspresso, 
-        you only pay for real, completed meetings.
+        Tired of pouring money into leads who never show?
+        With Leadspresso, you only pay for real, completed meetings.
       </p>
       <div class="pricing-grid">
         <!-- Plan: Pay Per Show -->
@@ -977,14 +996,19 @@
         </div>
       </div>
       <p style="margin-top: 2rem; text-align: center; color: var(--clr-brand);">
-        <strong>Note:</strong> Want strictly KiwiSaver leads? We have a separate 
+        <strong>Note:</strong>
+        Want strictly KiwiSaver leads? We have a separate
         checklist and pricing tailored just for that—let us know!
       </p>
     </div>
   </section>
 
   <!-- QUALITY LEAD CHECKLIST -->
-  <section class="section fade-in" style="background-color: var(--clr-bg-secondary);" id="quality-lead">
+  <section
+    class="section fade-in"
+    style="background-color: var(--clr-bg-secondary);"
+    id="quality-lead"
+  >
     <div class="container">
       <h2>Our Appointment Standards</h2>
       <ul class="checklist">
@@ -997,7 +1021,9 @@
         <li><strong>Reliability:</strong> Demonstrated commitment to attending scheduled appointments.</li>
       </ul>
       <p style="text-align: center; margin-top: 1rem;">
-        <em>We also have a separate checklist for KiwiSaver-only appointments—just ask if that’s your main focus.</em>
+        <em>
+          We also have a separate checklist for KiwiSaver-only appointments—just ask if that’s your main focus.
+        </em>
       </p>
     </div>
   </section>
@@ -1006,152 +1032,179 @@
   <section class="section fade-in" id="faq">
     <div class="container">
       <h2>Frequently Asked Questions</h2>
-
       <!-- FAQ Item 1 -->
       <div class="faq-item">
         <div class="faq-question">How do you generate these appointments?</div>
         <div class="faq-answer">
           <p>
-            We rely on personal outreach—calls, emails, texts—to confirm 
+            We rely on personal outreach—calls, emails, texts—to confirm
             real interest before scheduling them on your calendar.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 2 -->
       <div class="faq-item">
         <div class="faq-question">What if someone doesn’t show up?</div>
         <div class="faq-answer">
           <p>
-            You pay nothing. Our model charges you solely for appointments 
+            You pay nothing. Our model charges you solely for appointments
             that actually take place.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 3 -->
       <div class="faq-item">
         <div class="faq-question">Do you integrate with my CRM?</div>
         <div class="faq-answer">
           <p>
-            Yes, we can sync with your CRM for attendance verification, 
-            lead tracking, and data updates. We also use Calendly to 
-            streamline booking.
+            Yes, we can sync with your CRM for attendance verification, lead tracking,
+            and data updates. We also use Calendly to streamline booking.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 4 -->
       <div class="faq-item">
         <div class="faq-question">What about KiwiSaver prospects?</div>
         <div class="faq-answer">
           <p>
-            We specialize in KiwiSaver too. The process is similar—only pay 
+            We specialize in KiwiSaver too. The process is similar—only pay
             if they show—and we tailor our approach to match KiwiSaver-specific needs.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 5 -->
       <div class="faq-item">
         <div class="faq-question">How quickly can I start receiving appointments?</div>
         <div class="faq-answer">
           <p>
-            Often within days of completing our onboarding process. Once we 
-            have your schedule and preferences, we launch our outreach immediately.
+            Often within days of completing our onboarding process.
+            Once we have your schedule and preferences, we launch our
+            outreach immediately.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 6 -->
       <div class="faq-item">
         <div class="faq-question">What does onboarding look like?</div>
         <div class="faq-answer">
           <p>
-            You’ll fill out a brief setup form—taking about 30 minutes of 
+            You’ll fill out a brief setup form—taking about 30 minutes of
             your time—then we handle everything from outreach to scheduling.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 7 -->
       <div class="faq-item">
         <div class="faq-question">What if I’m not satisfied with the lead quality or ROI?</div>
         <div class="faq-answer">
           <p>
-            We’ll review your feedback, analyze our approach, and refine 
+            We’ll review your feedback, analyze our approach, and refine
             our efforts. Data is key, and we use it to continuously improve.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 8 -->
       <div class="faq-item">
         <div class="faq-question">Which types of insurance do you handle?</div>
         <div class="faq-answer">
           <p>
-            Primarily personal lines: life, health, income protection, 
-            trauma, and mortgage protection. We don’t handle general 
+            Primarily personal lines: life, health, income protection,
+            trauma, and mortgage protection. We don’t handle general
             lines like car or contents.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 9 -->
       <div class="faq-item">
         <div class="faq-question">Is there a long-term commitment?</div>
         <div class="faq-answer">
           <p>
-            No. You can pause or stop any time. We customize everything 
+            No. You can pause or stop any time. We customize everything
             to match your practice’s current needs.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 10 -->
       <div class="faq-item">
         <div class="faq-question">How do I pay?</div>
         <div class="faq-answer">
           <p>
-            We invoice for attended appointments weekly or monthly. 
+            We invoice for attended appointments weekly or monthly.
             For non-standard leads, you pay a 20% commission only upon conversion.
           </p>
         </div>
       </div>
-
       <!-- FAQ Item 11 -->
       <div class="faq-item">
         <div class="faq-question">What about privacy and compliance?</div>
         <div class="faq-answer">
           <p>
-            We operate under NZ’s Privacy Act 2020. We connect individuals 
-            with licensed advisers; all actual financial advice remains 
+            We operate under NZ’s Privacy Act 2020. We connect individuals
+            with licensed advisers; all actual financial advice remains
             the responsibility of the advising professional.
           </p>
         </div>
       </div>
-
     </div>
   </section>
+
+  <!-- ADDED: RESOURCES SECTION -->
+  <section class="section fade-in" id="resources">
+    <div class="container">
+      <h2>Resources</h2>
+      <div class="resources-grid">
+        <!-- Article 1 -->
+        <div class="resource-card">
+          <a href="insurance-lead-generation.html">
+            <h3>Insurance Lead Generation in NZ</h3>
+          </a>
+          <p>
+            Discover how to generate quality insurance leads with in-depth 
+            strategies, cost breakdowns, and ROI insights.
+          </p>
+        </div>
+        <!-- Article 2 -->
+        <div class="resource-card">
+          <a href="kiwisaver-lead-generation.html">
+           <h3>KiwiSaver Lead Generation in NZ</h3>
+          </a>
+          <p>
+            Explore the KiwiSaver market, stats, and how to attract 
+            members seeking better returns or fund switches.
+          </p>
+        </div>
+      </div>
+
+      <div class="resource-calculator">
+        <h3>ROI Calculator</h3>
+        <p>
+          Estimate your potential returns using our advanced ROI tool
+          for Insurance & KiwiSaver appointments.
+        </p>
+        <button class="btn-primary" onclick="openCalculatorPopup()">Open Calculator</button>
+      </div>
+    </div>
+  </section>
+  <!-- END RESOURCES SECTION -->
 
   <!-- ABOUT US -->
   <section class="section fade-in about" id="about">
     <div class="container">
       <h2>About Leadspresso</h2>
       <p>
-        Leadspresso was created to solve a major industry pain point: 
-        paying for leads that never show. Our pay-per-meeting model 
+        Leadspresso was created to solve a major industry pain point:
+        paying for leads that never show. Our pay-per-meeting model
         ensures you only invest in confirmed, high-quality appointments.
       </p>
       <p>
-        With thousands of insurance and KiwiSaver bookings completed for 
-        more than 70 NZ advisers, we know what it takes to keep your 
-        calendar full of genuine prospects. From initial outreach to 
+        With thousands of insurance and KiwiSaver bookings completed for
+        more than 70 NZ advisers, we know what it takes to keep your
+        calendar full of genuine prospects. From initial outreach to
         reminders, we handle it all—so you can focus on providing expert advice.
       </p>
       <p>
-        Ready to ditch the no-shows and pay only for real conversations? 
-        Let’s get brewing—Leadspresso is your blend of reliable appointments 
+        Ready to ditch the no-shows and pay only for real conversations?
+        Let’s get brewing—Leadspresso is your blend of reliable appointments
         and hassle-free lead generation.
       </p>
     </div>
@@ -1162,8 +1215,8 @@
     <div class="container">
       <h2>Ready for Real Appointments?</h2>
       <p style="max-width: 700px; margin: 0 auto 2rem;">
-        Fill out the form below, and we’ll tailor a plan to bring you 
-        ready-to-meet insurance and KiwiSaver prospects—while you only 
+        Fill out the form below, and we’ll tailor a plan to bring you
+        ready-to-meet insurance and KiwiSaver prospects—while you only
         pay when they genuinely attend.
       </p>
       <div class="form-container">
@@ -1239,9 +1292,9 @@
   <section class="disclaimer-section" id="disclaimer">
     <div class="container">
       <p>
-        <strong>Disclaimer:</strong> Leadspresso does not offer financial advice. 
-        We connect individuals with licensed advisers in New Zealand 
-        (in accordance with the Privacy Act 2020). All financial guidance 
+        <strong>Disclaimer:</strong> Leadspresso does not offer financial advice.
+        We connect individuals with licensed advisers in New Zealand
+        (in accordance with the Privacy Act 2020). All financial guidance
         is provided by registered professionals.
       </p>
     </div>
@@ -1268,6 +1321,21 @@
     </div>
   </footer>
 
+  <!-- MODAL FOR ROI CALCULATOR (ADDED) -->
+  <div id="calculatorModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCalculatorPopup()">&times;</span>
+      <!-- Embedded iframe pointing to your new ROI calculator page -->
+      <iframe 
+        src="roi-calculator.html" 
+        width="100%" 
+        height="600" 
+        style="border:none;"
+      ></iframe>
+    </div>
+  </div>
+  <!-- END MODAL -->
+
   <!-- SCRIPTS -->
   <script>
     // Toggle Mobile Navigation
@@ -1278,10 +1346,10 @@
       
       if (isOpen) {
         navUl.classList.remove('show');
-        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-expanded', '!1');
       } else {
         navUl.classList.add('show');
-        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-expanded', '!0');
       }
     }
 
@@ -1296,7 +1364,7 @@
       const hamburger = document.querySelector('.hamburger');
       if (navUl.classList.contains('show')) {
         navUl.classList.remove('show');
-        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-expanded', '!1');
       }
     }
 
@@ -1353,7 +1421,7 @@
 
       if (!isClickInside && navUl.classList.contains('show')) {
         navUl.classList.remove('show');
-        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-expanded', '!1');
       }
     });
 
@@ -1362,9 +1430,18 @@
     faqItems.forEach(item => {
       const question = item.querySelector('.faq-question');
       question.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
+        item.classList.toggle('active')
+      })
     });
+
+    // ----- ADDED: Modal for ROI Calculator -----
+    function openCalculatorPopup() {
+      document.getElementById('calculatorModal').style.display = 'block';
+    }
+    function closeCalculatorPopup() {
+      document.getElementById('calculatorModal').style.display = 'none';
+    }
+    // -------------------------------------------
   </script>
 </body>
 </html>
