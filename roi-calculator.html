@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>ROI Calculator | Leadspresso</title>
+  <style>
+    /* Basic styling for demonstration — adjust as needed */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; 
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .calculator-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #4a302f;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #3bbfb9;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2ea5a0;
+    }
+    .result {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: #4a302f;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-container">
+    <h1>ROI Calculator</h1>
+
+    <label for="numLeads">Number of Leads</label>
+    <input type="number" id="numLeads" placeholder="e.g. 50">
+
+    <label for="numMeetings">Number of Meetings</label>
+    <input type="number" id="numMeetings" placeholder="If leads is blank, you can fill this in">
+
+    <label for="showRate">Show Rate (%)</label>
+    <input type="number" id="showRate" placeholder="e.g. 80">
+
+    <label for="closeRate">Close Rate (%)</label>
+    <input type="number" id="closeRate" placeholder="e.g. 30">
+
+    <label for="costPerLead">Cost Per Lead (NZD)</label>
+    <input type="number" id="costPerLead" placeholder="e.g. 50">
+
+    <label for="costPerMeeting">Cost Per Meeting (NZD)</label>
+    <input type="number" id="costPerMeeting" placeholder="Leave blank to auto-calc from leads & show rate">
+
+    <label for="commissionRate">Commission Rate (%)</label>
+    <input type="number" id="commissionRate" placeholder="e.g. 80">
+
+    <button onclick="calculateROI()">Calculate ROI</button>
+
+    <div id="roiResult" class="result"></div>
+
+    <div class="note">
+      *Please note that calculations are for illustration only.
+    </div>
+  </div>
+
+  <script>
+    function calculateROI() {
+      // Fetch inputs (treat blank as 0)
+      let numLeads        = parseFloat(document.getElementById('numLeads').value) || 0;
+      let numMeetings     = parseFloat(document.getElementById('numMeetings').value) || 0;
+      let showRate        = parseFloat(document.getElementById('showRate').value) || 0; // in %
+      let closeRate       = parseFloat(document.getElementById('closeRate').value) || 0; // in %
+      let costPerLead     = parseFloat(document.getElementById('costPerLead').value) || 0;
+      let costPerMeeting  = parseFloat(document.getElementById('costPerMeeting').value) || 0;
+      let commissionRate  = parseFloat(document.getElementById('commissionRate').value) || 0; // in %
+
+      // -------------------------------
+      // 1) If leads is 0 but we have meetings and showRate, back-calculate leads
+      if (numLeads === 0 && numMeetings > 0 && showRate > 0) {
+        // leads = numberOfMeetings / (showRate/100)
+        numLeads = (numMeetings * 100) / showRate;
+      }
+      // 2) If meetings is 0 but we have leads and showRate, calculate meetings
+      else if (numMeetings === 0 && numLeads > 0 && showRate > 0) {
+        // meetings = leads * (showRate/100)
+        numMeetings = numLeads * (showRate / 100);
+      }
+
+      // 3) If costPerMeeting is 0 but costPerLead is given + showRate > 0 => auto calc costPerMeeting
+      if (costPerMeeting === 0 && costPerLead > 0 && showRate > 0) {
+        // costPerMeeting = costPerLead / (showRate/100)
+        costPerMeeting = (costPerLead * 100) / showRate;
+      }
+      // 4) If costPerLead is 0 but costPerMeeting is given + showRate > 0 => auto calc costPerLead
+      else if (costPerLead === 0 && costPerMeeting > 0 && showRate > 0) {
+        // costPerLead = costPerMeeting * (showRate/100)
+        costPerLead = costPerMeeting * (showRate / 100);
+      }
+
+      // Now proceed with calculations
+      const totalLeadCost    = numLeads * costPerLead;           // total cost for leads
+      const totalMeetingCost = numMeetings * costPerMeeting;     // total cost for actual meetings
+
+      // Number of deals closed
+      const closedDeals = numMeetings * (closeRate / 100);
+
+      // Commission assumption: closedDeals * (commissionRate% * some $ figure)
+      // In the original code we did: totalCommission = closedDeals * commissionRate * 100
+      // That is effectively saying each closed deal yields `commissionRate% * $100` in revenue.
+      // You can refine as needed. We'll keep consistent with original approach:
+      const totalCommission = closedDeals * commissionRate * 100;
+
+      const totalCost = totalLeadCost + totalMeetingCost;
+      const netGain   = totalCommission - totalCost;
+
+      let roiResultElement = document.getElementById('roiResult');
+
+      // Basic sanity checks
+      if (totalCost === 0 && totalCommission === 0) {
+        roiResultElement.textContent = 'Please provide enough info to calculate ROI.';
+        return;
+      }
+
+      // If totalCost > 0
+      let roiPercent = 0;
+      if (totalCost > 0) {
+        roiPercent = (netGain / totalCost) * 100;
+      }
+
+      roiResultElement.innerHTML = `
+        Leads: ${numLeads.toFixed(1)}<br>
+        Meetings: ${numMeetings.toFixed(1)}<br>
+        Closed Deals: ${closedDeals.toFixed(1)}<br><br>
+        Total Lead Cost: $${totalLeadCost.toFixed(2)}<br>
+        Total Meeting Cost: $${totalMeetingCost.toFixed(2)}<br>
+        <strong>Total Cost:</strong> $${totalCost.toFixed(2)}<br><br>
+        <strong>Total Commission Earned:</strong> $${totalCommission.toFixed(2)}<br>
+        Net Gain: $${netGain.toFixed(2)}<br>
+        ROI: ${roiPercent.toFixed(2)}%
+      `;
+    }
+  </script>
+
+</body>
+</html>

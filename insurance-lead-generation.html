@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    ===========================================================
+    Title: Insurance Lead Generation in NZ | Comprehensive Guide
+    Description: In-depth, Investopedia-inspired article about generating and paying for insurance leads, with tools and references for financial advisers
+    Author: Leadspresso
+    Date: 2025-01-29
+    ===========================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Lead Generation in NZ | Deep-Dive & Tools - Leadspresso</title>
+
+  <!-- Font Awesome Kit -->
+  <script src="https://kit.fontawesome.com/88549566b0.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts: Poppins (Optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Inline CSS (mirroring your main style) -->
+  <style>
+    /* CSS RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --font-body: 'Poppins', sans-serif;
+      --transition-speed: 0.3s;
+
+      /* Light Theme (default) */
+      --clr-bg: #ffffff;
+      --clr-bg-secondary: #f9f9f9;
+      --clr-text: #333333;
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
+      --clr-card: #ffffff;
+      --clr-border: #e4e4e4;
+      --clr-brand: #4a302f;
+      --clr-brand-light: #6b4d4d;
+
+      --hero-overlay: rgba(0, 0, 0, 0.4);
+      --clr-hero-text: #ffffff;
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    html.dark {
+      /* Dark Theme Overrides */
+      --clr-bg: #1f1f1f;
+      --clr-bg-secondary: #2a2a2a;
+      --clr-text: #e7e7e7;
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
+      --clr-card: #2a2a2a;
+      --clr-border: #3a3a3a;
+      --clr-brand: #b79c97;
+      --clr-brand-light: #d1b7b3;
+
+      --hero-overlay: rgba(0, 0, 0, 0.4);
+      --clr-hero-text: #ffffff;
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: var(--font-body);
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 0.5rem;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--clr-bg-secondary);
+      z-index: 1000;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      color: var(--clr-brand);
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      margin-right: 0.5rem;
+    }
+    .logo:hover {
+      color: var(--clr-accent);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+    }
+    nav li {
+      position: relative;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--clr-text);
+      transition: color var(--transition-speed);
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+    }
+
+    .header-cta {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color var(--transition-speed), transform 0.2s;
+      text-decoration: none;
+      margin-left: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .header-cta:hover {
+      background-color: var(--clr-accent-hover);
+      transform: scale(1.03);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--clr-border);
+      border-radius: 4px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--clr-text);
+      transition: background var(--transition-speed), color var(--transition-speed);
+      margin-left: 0.5rem;
+    }
+    .theme-toggle:hover {
+      background: var(--clr-accent);
+      color: #fff;
+      border-color: var(--clr-accent);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+    .bar {
+      width: 25px;
+      height: 2px;
+      background-color: var(--clr-brand);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-cta, .mobile-theme-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        background-color: var(--clr-bg-secondary);
+        border: 1px solid var(--clr-border);
+        padding: 1rem;
+        width: 200px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+        overflow: hidden;
+        display: none;
+        z-index: 999;
+      }
+      nav ul.show {
+        opacity: 1;
+        max-height: 500px;
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .header-buttons {
+        display: none;
+      }
+      .mobile-cta, .mobile-theme-toggle {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+      .mobile-cta a {
+        width: 100%;
+        display: inline-block;
+      }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 4rem 1rem;
+      text-align: center;
+      background: linear-gradient(
+        var(--hero-overlay),
+        var(--hero-overlay)
+      ),
+      url('https://i.imgur.com/LfJqS6q.jpeg') no-repeat center / cover;
+      color: var(--clr-hero-text);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hero-overlay);
+      z-index: 1;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--clr-hero-text);
+      text-shadow: 2px 2px 4px var(--clr-hero-text-shadow);
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px var(--clr-hero-text-shadow);
+    }
+    .subtle-cta {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color var(--transition-speed), transform 0.2s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .subtle-cta:hover {
+      background-color: var(--clr-accent-hover);
+      transform: scale(1.02);
+    }
+
+    /* SECTION SHARED */
+    .section {
+      padding: 2.5rem 1rem;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--clr-brand);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .section p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TABLE STYLES */
+    .table-container {
+      margin-top: 1.5rem;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      min-width: 400px;
+    }
+    th, td {
+      text-align: left;
+      border-bottom: 1px solid var(--clr-border);
+      padding: 0.75rem;
+    }
+    th {
+      background-color: var(--clr-bg-secondary);
+      color: var(--clr-brand);
+      font-weight: 600;
+    }
+
+    /* COMPARISON TABLE */
+    .comparison-table {
+      margin-top: 2rem;
+    }
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      min-width: 500px;
+    }
+    .comparison-table th, .comparison-table td {
+      text-align: left;
+      border-bottom: 1px solid var(--clr-border);
+      padding: 0.75rem;
+    }
+    .comparison-table th {
+      background-color: var(--clr-bg-secondary);
+      color: var(--clr-brand);
+      font-weight: 600;
+    }
+
+    /* CALCULATOR STYLES */
+    .calculator-box {
+      max-width: 600px;
+      margin: 1.5rem auto;
+      background-color: var(--clr-bg-secondary);
+      padding: 1.5rem;
+      border: 1px solid var(--clr-border);
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .calculator-box label {
+      display: block; 
+      margin-bottom: 0.5rem; 
+      font-weight: 500;
+    }
+    .calculator-box input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem; 
+      border: 1px solid var(--clr-border); 
+      border-radius: 4px;
+    }
+    .calculator-box button {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      transition: background-color var(--transition-speed);
+    }
+    .calculator-box button:hover {
+      background-color: var(--clr-accent-hover);
+    }
+    .calculator-result {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--clr-brand);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--clr-bg-secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid var(--clr-border);
+      margin-top: 3rem;
+    }
+    .footer-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--clr-text);
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+    .footer-links a:hover {
+      color: var(--clr-accent);
+    }
+    .footer-disclaimer {
+      font-size: 0.85rem;
+      color: var(--clr-text);
+      margin-top: 1rem;
+    }
+    .scroll-top {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--clr-accent);
+      cursor: pointer;
+      transition: color var(--transition-speed), transform 0.2s;
+    }
+    .scroll-top:hover {
+      color: var(--clr-accent-hover);
+      transform: scale(1.05);
+    }
+
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img 
+          src="https://i.imgur.com/MrVE7aA.png" 
+          alt="Leadspresso Logo" 
+          loading="lazy"
+        />
+        Leadspresso
+      </a>
+
+      <!-- Navigation -->
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#data-details">Data</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <!-- Potential link to KiwiSaver page -->
+          <li><a href="kiwisaver-lead-generation.html">KiwiSaver Lead Gen</a></li>
+
+          <!-- Mobile CTA & Theme Toggle -->
+          <li class="mobile-cta">
+            <a href="index.html#contact" class="header-cta">Get in Touch</a>
+          </li>
+          <li class="mobile-theme-toggle">
+            <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Buttons -->
+      <div class="header-buttons">
+        <a href="index.html#contact" class="header-cta">Get in Touch</a>
+        <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero fade-in">
+    <h1>Comprehensive Insurance Lead Generation in NZ</h1>
+    <p>
+      Looking to expand your advisory business? Dive into this 
+      in-depth guide on how to generate quality insurance leads 
+      in New Zealand—covering costs, ROI, strategies, and more.
+    </p>
+    <a class="subtle-cta" href="index.html#contact">Get in Touch</a>
+  </section>
+
+  <!-- INTRODUCTION SECTION -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>Insurance Lead Generation 101</h2>
+      <p>
+        Insurance lead generation is the process of finding 
+        and nurturing potential policyholders—people who have 
+        the interest and means to purchase life, health, income 
+        protection, or other insurance products. According to 
+        the <a href="https://www.icnz.org.nz/" target="_blank" rel="noopener">Insurance Council of New Zealand (ICNZ)</a>, 
+        Kiwis hold over $4 billion in annual premiums across life 
+        and health insurance lines—but there's still a massive 
+        underinsured population.
+      </p>
+      <p>
+        As a financial adviser, tapping into this market requires 
+        more than just cold-calling. A strategic mix of 
+        <strong>education</strong>, <strong>targeting</strong>, and 
+        <strong>consistent follow-up</strong> will yield the highest-quality leads. 
+        Below, we outline the fundamentals, typical cost structures, and ROI 
+        expectations so you can plan effectively.
+      </p>
+    </div>
+  </section>
+
+  <!-- MARKET SNAPSHOT / STATS SECTION -->
+  <section class="section fade-in" style="background-color: var(--clr-bg-secondary);">
+    <div class="container">
+      <h2>Key Market Stats</h2>
+      <p>
+        Before diving into tactics, let's look at a snapshot of 
+        insurance uptake and potential in NZ:
+      </p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Statistic</th>
+              <th>Approximate Figure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Life & Health Premiums</td>
+              <td>$4+ billion annually</td>
+            </tr>
+            <tr>
+              <td>Underinsured Households</td>
+              <td>~45% (estimate by ICNZ)</td>
+            </tr>
+            <tr>
+              <td>Average Adviser Commission Rate</td>
+              <td>~70% - 90% of annual premium*</td>
+            </tr>
+            <tr>
+              <td>Typical Close Rate (Qualified Lead)</td>
+              <td>25% - 40%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: #666;">
+        *Commission rates vary by insurer and policy type. Some can be lower/higher.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMPARISON OF LEAD GENERATION OPTIONS -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>Comparing Lead Generation Options</h2>
+      <p>
+        There are various methods to generate insurance leads. Here's a comparison of the most common options:
+      </p>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Lead Generation Method</th>
+              <th>Pros</th>
+              <th>Cons</th>
+              <th>Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row - You can fill in the details -->
+            <tr>
+              <td>Cold Calling</td>
+              <td>Direct contact with prospects</td>
+              <td>Low conversion rates, time-consuming</td>
+              <td>$30 - $60 per lead</td>
+            </tr>
+            <tr>
+              <td>Email Marketing</td>
+              <td>Scalable, cost-effective</td>
+              <td>Requires good email list, potential spam issues</td>
+              <td>$10 - $50 per lead</td>
+            </tr>
+            <tr>
+              <td>Social Media Advertising</td>
+              <td>Highly targeted, measurable</td>
+              <td>Can be expensive, requires expertise</td>
+              <td>$20 - $100 per lead</td>
+            </tr>
+            <tr>
+              <td>Referral Programs</td>
+              <td>High trust, higher conversion rates</td>
+              <td>Dependent on existing client base</td>
+              <td>Varies, often performance-based</td>
+            </tr>
+            <tr>
+              <td>Pay-Per-Show Services</td>
+              <td>Pay only for appointments that show</td>
+              <td>Higher cost per lead</td>
+              <td>$200 - $350 per lead</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: #666;">
+        *Estimated costs based on industry averages in NZ. Actual costs may vary.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROI EXPECTATION WITH EXPANDED CALCULATOR -->
+  <section class="section fade-in" style="background-color: var(--clr-bg-secondary);">
+    <div class="container">
+      <h2>ROI for Insurance Leads</h2>
+      <p>
+        Understanding the return on investment (ROI) for your lead generation efforts is crucial. This comprehensive calculator helps you estimate ROI by factoring in multiple variables such as leads, show rate %, close rate %, cost per meeting, cost per lead, commission rate, and net gain %.
+      </p>
+      <!-- Enhanced ROI Calculator -->
+      <div class="calculator-box">
+        <h3>Insurance Lead ROI Calculator</h3>
+        <label for="num-leads">Number of Leads</label>
+        <input 
+          type="number" 
+          id="num-leads" 
+          placeholder="e.g. 50"
+        >
+
+        <label for="show-rate">Show Rate (%)</label>
+        <input 
+          type="number" 
+          id="show-rate" 
+          placeholder="e.g. 80"
+        >
+
+        <label for="close-rate">Close Rate (%)</label>
+        <input 
+          type="number" 
+          id="close-rate" 
+          placeholder="e.g. 30"
+        >
+
+        <label for="cost-per-lead">Cost Per Lead (NZD)</label>
+        <input 
+          type="number" 
+          id="cost-per-lead" 
+          placeholder="e.g. 50"
+        >
+
+        <label for="cost-per-meeting">Cost Per Meeting (NZD)</label>
+        <input 
+          type="number" 
+          id="cost-per-meeting" 
+          placeholder="e.g. 200"
+        >
+
+        <label for="commission-rate">Commission Rate (%)</label>
+        <input 
+          type="number" 
+          id="commission-rate" 
+          placeholder="e.g. 80"
+        >
+
+        <button onclick="calculateExpandedROI()">Calculate ROI</button>
+        <p id="roi-result" class="calculator-result"></p>
+      </div>
+
+      <p>
+        Use the calculator above to understand the financial impact of your lead generation strategies. By adjusting each parameter, you can better plan your investments and expectations.
+      </p>
+    </div>
+  </section>
+
+  <!-- STRATEGIES SECTION -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>Core Strategies for Generating Insurance Leads</h2>
+      <p>
+        Once you’ve crunched the numbers, it’s time to fill your 
+        pipeline. Below are proven tactics advisers in NZ use 
+        to attract (and convert) quality leads:
+      </p>
+      <ul style="list-style: disc; margin-left: 1.5rem; line-height: 1.8;">
+        <li><strong>Referral Networks:</strong> Partner with mortgage brokers, accountants, or real estate agents. Cross-referrals can bring highly relevant prospects.</li>
+        <li><strong>Educational Webinars:</strong> Host 30-minute online sessions demystifying insurance. Capture emails upon registration, then follow up promptly.</li>
+        <li><strong>Social Proof & Testimonials:</strong> NZ consumers trust peers. Share client success stories (with permission) to build credibility.</li>
+        <li><strong>Local SEO & Content Marketing:</strong> Rank for queries like “Best life insurance in Auckland” or “How to get mortgage protection in NZ” through helpful blog posts.</li>
+        <li><strong>Pay-Per-Show Services:</strong> Streamline your pipeline with appointment-based leads that actually turn up, reducing time wasted on no-shows.</li>
+        <li><strong>Targeted Email Campaigns:</strong> Send personalized emails to segmented lists based on demographics and past interactions.</li>
+        <li><strong>Content Upgrades:</strong> Offer valuable resources like eBooks or checklists in exchange for contact information.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PITFALLS / COMMON MISTAKES -->
+  <section class="section fade-in" style="background-color: var(--clr-bg-secondary);">
+    <div class="container">
+      <h2>Common Pitfalls to Avoid</h2>
+      <p>
+        Even seasoned advisers can slip up. Watch out for these 
+        typical mistakes when growing your lead base:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8;">
+        <li><strong>Overpaying for Generic Lists:</strong> Bulk lead lists might be cheap, but they’re often unqualified. Focus on quality over quantity.</li>
+        <li><strong>Inefficient Follow-Up:</strong> Leads go cold fast. Contact new inquiries within 24 hours to maximise conversions.</li>
+        <li><strong>Lack of Clarity on Services:</strong> If prospects don’t understand what you offer (life vs. trauma vs. income protection), they’ll tune out. Keep it clear and simple.</li>
+        <li><strong>Ignoring Renewals:</strong> Existing clients may have new coverage needs or refer friends. Don’t forget them!</li>
+        <li><strong>Not Tracking Metrics:</strong> Without tracking key performance indicators (KPIs), you can’t measure success or identify areas for improvement.</li>
+        <li><strong>Neglecting Compliance:</strong> Ensure all lead generation activities comply with NZ’s Privacy Act 2020 and financial regulations.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION (Optional Additions) -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>Comparison of Lead Generation Options</h2>
+      <p>
+        Choosing the right lead generation method depends on your business needs, budget, and target audience. Below is a comparison to help you decide:
+      </p>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Lead Generation Method</th>
+              <th>Pros</th>
+              <th>Cons</th>
+              <th>Estimated Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cold Calling</td>
+              <td>Direct contact with prospects</td>
+              <td>Low conversion rates, time-consuming</td>
+              <td>$30 - $60 per lead</td>
+            </tr>
+            <tr>
+              <td>Email Marketing</td>
+              <td>Scalable, cost-effective</td>
+              <td>Requires good email list, potential spam issues</td>
+              <td>$10 - $50 per lead</td>
+            </tr>
+            <tr>
+              <td>Social Media Advertising</td>
+              <td>Highly targeted, measurable</td>
+              <td>Can be expensive, requires expertise</td>
+              <td>$20 - $100 per lead</td>
+            </tr>
+            <tr>
+              <td>Referral Programs</td>
+              <td>High trust, higher conversion rates</td>
+              <td>Dependent on existing client base</td>
+              <td>Varies, often performance-based</td>
+            </tr>
+            <tr>
+              <td>Pay-Per-Show Services</td>
+              <td>Pay only for appointments that show</td>
+              <td>Higher cost per lead</td>
+              <td>$200 - $350 per lead</td>
+            </tr>
+            <tr>
+              <td>Webinars & Workshops</td>
+              <td>Establishes authority, engages audience</td>
+              <td>Requires planning and promotion</td>
+              <td>$50 - $150 per lead</td>
+            </tr>
+            <tr>
+              <td>SEO & Content Marketing</td>
+              <td>Long-term visibility, builds trust</td>
+              <td>Time-consuming, requires ongoing effort</td>
+              <td>$20 - $70 per lead</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: #666;">
+        *Estimated costs based on industry averages in NZ. Actual costs may vary.
+      </p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section fade-in" style="text-align: center;">
+    <div class="container">
+      <h2 style="margin-bottom: 0.5rem;">Ready to See Real Results?</h2>
+      <p style="max-width: 700px; margin: 0 auto 1rem;">
+        Insurance lead generation can be complex, but the rewards are 
+        substantial—if you approach it strategically. If you’re looking 
+        for a solution that delivers pre-qualified, show-up-ready leads, 
+        consider our pay-per-show model. 
+      </p>
+      <a class="subtle-cta" href="index.html#contact">Talk to Leadspresso</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#data-details">Data</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-disclaimer">
+        &copy; 2025 Leadspresso. All rights reserved.
+      </div>
+      <div class="scroll-top" onclick="scrollToSection('top')">
+        Back to Top &uarr;
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Toggle Mobile Navigation
+    function toggleMobileNav() {
+      const navUl = document.querySelector('#mainNav ul');
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = navUl.classList.contains('show');
+
+      if (isOpen) {
+        navUl.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      } else {
+        navUl.classList.add('show');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Dark/Light Theme Toggle
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Smooth scroll
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Fade-in animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = {
+        threshold: 0.1
+      };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        });
+      }, options);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+    });
+
+    // Expanded ROI Calculator
+    function calculateExpandedROI() {
+      const numLeads = parseFloat(document.getElementById('num-leads').value) || 0;
+      const showRate = parseFloat(document.getElementById('show-rate').value) || 0; // in %
+      const closeRate = parseFloat(document.getElementById('close-rate').value) || 0; // in %
+      const costPerLead = parseFloat(document.getElementById('cost-per-lead').value) || 0;
+      const costPerMeeting = parseFloat(document.getElementById('cost-per-meeting').value) || 0;
+      const commissionRate = parseFloat(document.getElementById('commission-rate').value) || 0; // in %
+
+      // Calculate number of meetings that show
+      const numShowMeetings = numLeads * (showRate / 100);
+      // Calculate number of closed deals
+      const numClosedDeals = numShowMeetings * (closeRate / 100);
+      // Total cost for leads
+      const totalLeadCost = numLeads * costPerLead;
+      // Total cost for meetings
+      const totalMeetingCost = numShowMeetings * costPerMeeting;
+      // Total cost
+      const totalCost = totalLeadCost + totalMeetingCost;
+      // Total commission
+      const totalCommission = numClosedDeals * commissionRate * 100; // Assuming commission is percentage of premium. Adjust as needed.
+      // Net gain
+      const netGain = totalCommission - totalCost;
+      // Net gain percentage
+      const netGainPercent = totalCost > 0 ? ((netGain / totalCost) * 100).toFixed(2) : 0;
+
+      const resultElem = document.getElementById('roi-result');
+      if (totalCommission > 0 && totalCost > 0) {
+        resultElem.innerHTML = `
+          <strong>Meetings Showed:</strong> ${numShowMeetings.toFixed(0)}<br>
+          <strong>Deals Closed:</strong> ${numClosedDeals.toFixed(0)}<br>
+          <strong>Total Lead Cost:</strong> $${totalLeadCost.toFixed(2)}<br>
+          <strong>Total Meeting Cost:</strong> $${totalMeetingCost.toFixed(2)}<br>
+          <strong>Total Cost:</strong> $${totalCost.toFixed(2)}<br>
+          <strong>Total Commission Earned:</strong> $${totalCommission.toFixed(2)}<br>
+          <strong>Net Gain:</strong> $${netGain.toFixed(2)} (${netGainPercent}% ROI)
+        `;
+      } else {
+        resultElem.textContent = 'Please enter valid numbers.';
+      }
+    }
+  </script>
+</body>
+</html>

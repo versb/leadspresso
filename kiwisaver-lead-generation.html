@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    ===========================================================
+    Title: KiwiSaver Lead Generation in NZ | Stats & Strategy
+    Description: Informational page about generating KiwiSaver leads, with helpful tables and a small interactive tool
+    Author: Leadspresso
+    Date: 2025-01-29
+    ===========================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KiwiSaver Lead Generation in NZ | Tips, Stats & Tools - Leadspresso</title>
+
+  <!-- Font Awesome Kit -->
+  <script src="https://kit.fontawesome.com/88549566b0.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts: Poppins (Optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Inline CSS (mirroring your main style) -->
+  <style>
+    /* CSS RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --font-body: 'Poppins', sans-serif;
+      --transition-speed: 0.3s;
+      --clr-bg: #ffffff;
+      --clr-bg-secondary: #f9f9f9;
+      --clr-text: #333333;
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
+      --clr-card: #ffffff;
+      --clr-border: #e4e4e4;
+      --clr-brand: #4a302f;
+      --clr-brand-light: #6b4d4d;
+
+      --hero-overlay: rgba(0, 0, 0, 0.4);
+      --clr-hero-text: #ffffff;
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    html.dark {
+      --clr-bg: #1f1f1f;
+      --clr-bg-secondary: #2a2a2a;
+      --clr-text: #e7e7e7;
+      --clr-accent: #3bbfb9;
+      --clr-accent-hover: #2ea5a0;
+      --clr-card: #2a2a2a;
+      --clr-border: #3a3a3a;
+      --clr-brand: #b79c97;
+      --clr-brand-light: #d1b7b3;
+      --hero-overlay: rgba(0, 0, 0, 0.4);
+      --clr-hero-text: #ffffff;
+      --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: var(--font-body);
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 0.5rem;
+    }
+
+    /* HEADER / NAV */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--clr-bg-secondary);
+      z-index: 1000;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      position: relative;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      color: var(--clr-brand);
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      margin-right: 0.5rem;
+    }
+    .logo:hover {
+      color: var(--clr-accent);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+    }
+    nav li {
+      position: relative;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--clr-text);
+      transition: color var(--transition-speed);
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
+    nav a:hover {
+      color: var(--clr-accent);
+    }
+
+    .header-cta {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color var(--transition-speed), transform 0.2s;
+      text-decoration: none;
+      margin-left: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .header-cta:hover {
+      background-color: var(--clr-accent-hover);
+      transform: scale(1.03);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--clr-border);
+      border-radius: 4px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--clr-text);
+      transition: background var(--transition-speed), color var(--transition-speed);
+      margin-left: 0.5rem;
+    }
+    .theme-toggle:hover {
+      background: var(--clr-accent);
+      color: #fff;
+      border-color: var(--clr-accent);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+    .bar {
+      width: 25px;
+      height: 2px;
+      background-color: var(--clr-brand);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .mobile-cta, .mobile-theme-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        background-color: var(--clr-bg-secondary);
+        border: 1px solid var(--clr-border);
+        padding: 1rem;
+        width: 200px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+        overflow: hidden;
+        display: none;
+        z-index: 999;
+      }
+      nav ul.show {
+        opacity: 1;
+        max-height: 500px;
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .header-buttons {
+        display: none;
+      }
+      .mobile-cta, .mobile-theme-toggle {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+      .mobile-cta a {
+        width: 100%;
+        display: inline-block;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 4rem 1rem;
+      text-align: center;
+      background: linear-gradient(
+        var(--hero-overlay),
+        var(--hero-overlay)
+      ),
+      url('https://i.imgur.com/LfJqS6q.jpeg') no-repeat center / cover;
+      color: var(--clr-hero-text);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hero-overlay);
+      z-index: 1;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--clr-hero-text);
+      text-shadow: 2px 2px 4px var(--clr-hero-text-shadow);
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px var(--clr-hero-text-shadow);
+    }
+    .subtle-cta {
+      background-color: var(--clr-accent);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color var(--transition-speed), transform 0.2s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .subtle-cta:hover {
+      background-color: var(--clr-accent-hover);
+      transform: scale(1.02);
+    }
+
+    /* SECTION */
+    .section {
+      padding: 2.5rem 1rem;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--clr-brand);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .section p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TABLE STYLES */
+    .table-container {
+      margin-top: 1.5rem;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      min-width: 400px;
+    }
+    th, td {
+      text-align: left;
+      border-bottom: 1px solid var(--clr-border);
+      padding: 0.75rem;
+    }
+    th {
+      background-color: var(--clr-bg-secondary);
+      color: var(--clr-brand);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--clr-bg-secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid var(--clr-border);
+      margin-top: 3rem;
+    }
+    .footer-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--clr-text);
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+    .footer-links a:hover {
+      color: var(--clr-accent);
+    }
+    .footer-disclaimer {
+      font-size: 0.85rem;
+      color: var(--clr-text);
+      margin-top: 1rem;
+    }
+    .scroll-top {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--clr-accent);
+      cursor: pointer;
+      transition: color var(--transition-speed), transform 0.2s;
+    }
+    .scroll-top:hover {
+      color: var(--clr-accent-hover);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img 
+          src="https://i.imgur.com/MrVE7aA.png" 
+          alt="Leadspresso Logo" 
+          loading="lazy"
+        />
+        Leadspresso
+      </a>
+      <!-- Navigation -->
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#data-details">Data</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <!-- Additional link to Insurance lead gen page, if wanted -->
+          <li><a href="insurance-lead-generation.html">Insurance Lead Generation</a></li>
+
+          <!-- Mobile CTA & Theme Toggle -->
+          <li class="mobile-cta">
+            <a href="index.html#contact" class="header-cta">Get in Touch</a>
+          </li>
+          <li class="mobile-theme-toggle">
+            <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+          </li>
+        </ul>
+      </nav>
+      <!-- Header Buttons -->
+      <div class="header-buttons">
+        <a href="index.html#contact" class="header-cta">Get in Touch</a>
+        <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <h1>KiwiSaver Lead Generation in NZ</h1>
+    <p>
+      KiwiSaver remains one of the most popular retirement saving 
+      schemes in New Zealand. Here’s how you can attract prospects 
+      eager to optimize or switch their KiwiSaver funds—and turn 
+      them into loyal clients.
+    </p>
+    <a class="subtle-cta" href="index.html#contact">Contact Us</a>
+  </section>
+
+  <!-- MAIN CONTENT SECTION 1 -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>KiwiSaver: The Numbers You Need to Know</h2>
+      <p>
+        According to the <a href="https://www.ird.govt.nz/" target="_blank" rel="noopener">Inland Revenue</a>, 
+        over <strong>3 million New Zealanders</strong> are enrolled in KiwiSaver as of 2023. 
+        Yet, a considerable percentage remain in default funds or have minimal engagement 
+        with their account. Check out some key stats:
+      </p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Statistic</th>
+              <th>Figure (Approx.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total KiwiSaver Members</td>
+              <td>3.1 million</td>
+            </tr>
+            <tr>
+              <td>Default Fund Holders</td>
+              <td>~420,000</td>
+            </tr>
+            <tr>
+              <td>Avg. Contribution Rate</td>
+              <td>3-4%</td>
+            </tr>
+            <tr>
+              <td>Active vs. Passive Fund Ratio</td>
+              <td>~60% Active / 40% Passive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: #666;">
+        *Data compiled from IRD &amp; Commission for Financial Capability estimates.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT SECTION 2: STRATEGIES -->
+  <section class="section fade-in" style="background-color: var(--clr-bg-secondary);">
+    <div class="container">
+      <h2>Effective Tactics for KiwiSaver Lead Generation</h2>
+      <ul style="list-style: disc; margin-left: 1.5rem; line-height: 1.8;">
+        <li><strong>Educate About Funds:</strong> Many KiwiSaver members don’t realise they can switch from default or underperforming funds—highlight the benefits of better fund selection.</li>
+        <li><strong>Demystify Fees & Returns:</strong> Offer quick assessments or mini-comparisons, showing how slight fee reductions can yield thousands in retirement savings.</li>
+        <li><strong>Host Online Webinars:</strong> Brief, free KiwiSaver sessions attract people seeking clarity, leading to direct inquiries post-webinar.</li>
+        <li><strong>Leverage Milestones:</strong> Target those turning 18 or starting a first job—key moments when KiwiSaver decisions matter most.</li>
+        <li><strong>Pay-Per-Show Appointments:</strong> Services like Leadspresso fill your calendar with real prospects. Less chasing, more advising.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- A SMALL "TOOL" SECTION -->
+  <section class="section fade-in">
+    <div class="container">
+      <h2>KiwiSaver Growth Potential Tool</h2>
+      <p>
+        Unsure how a small change in contribution rate or fund fees 
+        can affect long-term returns? Use this simplified tool for a 
+        rough estimate.
+      </p>
+      <div style="max-width: 500px; margin: 1.5rem auto; background-color: var(--clr-bg-secondary); padding: 1rem; border: 1px solid var(--clr-border); border-radius: 6px;">
+        <label for="balance" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Current KiwiSaver Balance (NZD):</label>
+        <input 
+          type="number" 
+          id="balance" 
+          placeholder="e.g. 20000" 
+          style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--clr-border); border-radius: 4px;"
+        >
+        
+        <label for="contribution" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Monthly Contribution (NZD):</label>
+        <input 
+          type="number" 
+          id="contribution" 
+          placeholder="e.g. 300" 
+          style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--clr-border); border-radius: 4px;"
+        >
+
+        <label for="years" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Years to Grow:</label>
+        <input 
+          type="number" 
+          id="years" 
+          placeholder="e.g. 10" 
+          style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--clr-border); border-radius: 4px;"
+        >
+
+        <button 
+          onclick="calculateKiwiSaverGrowth()" 
+          style="background-color: var(--clr-accent); color: #fff; padding: 0.6rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;"
+        >
+          Estimate Growth
+        </button>
+        
+        <p id="growth-result" style="margin-top: 1rem; font-weight: 600; color: var(--clr-brand);"></p>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; text-align: center;">
+        *For illustration only. Actual results depend on fund performance &amp; market conditions.
+      </p>
+    </div>
+  </section>
+
+  <!-- SUBTLE CTA -->
+  <section class="section fade-in" style="text-align: center;">
+    <div class="container">
+      <h2 style="margin-bottom: 0.5rem;">Grow Your KiwiSaver Client Base</h2>
+      <p style="max-width: 700px; margin: 0 auto 1rem;">
+        Ready to connect with KiwiSaver members looking to make a change? 
+        We can help you generate real appointments with real prospects.
+      </p>
+      <a class="subtle-cta" href="index.html#contact">Contact Leadspresso</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#data-details">Data</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-disclaimer">
+        &copy; 2025 Leadspresso. All rights reserved.
+      </div>
+      <div class="scroll-top" onclick="scrollToSection('top')">
+        Back to Top &uarr;
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // MOBILE NAV
+    function toggleMobileNav() {
+      const navUl = document.querySelector('#mainNav ul');
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = navUl.classList.contains('show');
+      if (isOpen) {
+        navUl.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      } else {
+        navUl.classList.add('show');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // THEME TOGGLE
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // SCROLL
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // FADE-INS
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = {
+        threshold: 0.1
+      };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        });
+      }, options);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+    });
+
+    // SIMPLE GROWTH CALCULATOR (VERY BASIC)
+    function calculateKiwiSaverGrowth() {
+      const balance = parseFloat(document.getElementById('balance').value) || 0;
+      const monthly = parseFloat(document.getElementById('contribution').value) || 0;
+      const years = parseFloat(document.getElementById('years').value) || 0;
+      // A super-simple compound approximation (not factoring monthly compounding precisely)
+      const annualContrib = monthly * 12;
+      let estimated = balance;
+      const assumedReturnRate = 0.05; // 5% annual example
+
+      for (let i = 0; i < years; i++) {
+        estimated += annualContrib;
+        estimated *= (1 + assumedReturnRate);
+      }
+
+      document.getElementById('growth-result').textContent = 
+        `Projected Balance: $${estimated.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
