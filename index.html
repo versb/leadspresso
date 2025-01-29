@@ -12,6 +12,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leadspresso - Insurance & KiwiSaver Appointments That Show Up</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/MrVE7aA.png">
+
 
   <!-- Font Awesome Kit -->
   <script src="https://kit.fontawesome.com/88549566b0.js" crossorigin="anonymous"></script>
@@ -48,12 +50,12 @@
       --clr-card: #ffffff;
       --clr-border: #e4e4e4;
 
-      /* Additional brand color for headings */
-      --clr-brand: #4b2e2e;       /* coffee brown */
-      --clr-brand-light: #634848; /* lighter coffee */
+      /* Slightly refined brand color & lighter shade */
+      --clr-brand: #4a302f;       
+      --clr-brand-light: #6b4d4d;
 
       /* Hero Section Variables */
-      --hero-overlay: rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.4);
       --clr-hero-text: #ffffff;
       --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
     }
@@ -68,10 +70,10 @@
       --clr-card: #2a2a2a;
       --clr-border: #3a3a3a;
 
-      --clr-brand: #9d857f;       /* coffee brown in dark mode */
-      --clr-brand-light: #bca39d; /* lighter coffee in dark mode */
+      --clr-brand: #b79c97;       
+      --clr-brand-light: #d1b7b3;
 
-      --hero-overlay: rgba(0, 0, 0, 0.5);
+      --hero-overlay: rgba(0, 0, 0, 0.4);
       --clr-hero-text: #ffffff;
       --clr-hero-text-shadow: rgba(0, 0, 0, 0.3);
     }
@@ -92,6 +94,7 @@
       width: 90%;
       max-width: 1200px;
       margin: auto;
+      padding: 0 0.5rem;
     }
 
     /* Header / Sticky Nav */
@@ -112,46 +115,40 @@
     .logo {
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--clr-brand);
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       text-decoration: none;
+      transition: color var(--transition-speed);
     }
     .logo img {
       height: 40px;
       width: auto;
       margin-right: 0.5rem;
     }
+    .logo:hover {
+      color: var(--clr-accent);
+    }
 
-    /* Nav Items */
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+    }
     nav ul {
       display: flex;
       gap: 1rem;
       list-style: none;
       transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: var(--clr-bg-secondary);
-      border: 1px solid var(--clr-border);
-      padding: 1rem;
-      width: 200px;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      flex-direction: column;
     }
-    nav ul.show {
-      opacity: 1;
-      max-height: 500px; 
+    nav li {
+      position: relative;
     }
     nav a {
       text-decoration: none;
       color: var(--clr-text);
       transition: color var(--transition-speed);
-      font-size: 0.95rem;
+      font-size: 1rem;
       padding: 0.5rem 0;
     }
     nav a:hover {
@@ -162,17 +159,19 @@
     .header-cta {
       background-color: var(--clr-accent);
       color: #fff;
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.2rem;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 0.9rem;
-      transition: background-color var(--transition-speed);
+      font-weight: 600;
+      transition: background-color var(--transition-speed), transform 0.2s;
       text-decoration: none;
-      margin-left: 0.5rem;
+      margin-left: 0.75rem;
+      font-size: 0.95rem;
     }
     .header-cta:hover {
       background-color: var(--clr-accent-hover);
+      transform: scale(1.03);
     }
 
     /* Dark/Light Toggle Button */
@@ -210,9 +209,13 @@
     }
 
     /* Mobile Styles */
+    /* Hide mobile-specific buttons on desktop */
+    .mobile-cta, .mobile-theme-toggle {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       nav ul {
-        display: flex;
         flex-direction: column;
         gap: 1rem;
         background-color: var(--clr-bg-secondary);
@@ -228,36 +231,37 @@
         max-height: 0;
         transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
         overflow: hidden;
+        display: none; /* Initially hidden */
+        z-index: 999;
       }
       nav ul.show {
         opacity: 1;
         max-height: 500px;
+        display: flex;
       }
       .hamburger {
         display: flex;
       }
-      /* Hide original CTA and Theme Toggle in header */
-      .header-cta, .theme-toggle {
+      /* Hide original buttons in header on mobile */
+      .header-buttons {
         display: none;
       }
       /* Show CTA and Theme Toggle inside the dropdown */
-      nav ul .mobile-cta, nav ul .mobile-theme-toggle {
+      .mobile-cta, .mobile-theme-toggle {
         display: block;
-      }
-      .mobile-cta {
-        margin-top: 1rem;
+        width: 100%;
         text-align: center;
       }
-      .mobile-theme-toggle {
-        margin-top: 0.5rem;
-        text-align: center;
+      .mobile-cta a {
+        width: 100%;
+        display: inline-block;
       }
     }
 
     /* Hero Section */
     .hero {
       position: relative;
-      padding: 4rem 1rem;
+      padding: 6rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -266,9 +270,7 @@
         var(--hero-overlay),
         var(--hero-overlay)
       ),
-      url('https://i.imgur.com/LfJqS6q.jpeg');
-      background-size: cover;
-      background-position: center;
+      url('https://i.imgur.com/LfJqS6q.jpeg') no-repeat center / cover;
       color: var(--clr-hero-text);
     }
     .hero::before {
@@ -286,14 +288,15 @@
       z-index: 2;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
       color: var(--clr-hero-text);
       text-shadow: 2px 2px 4px var(--clr-hero-text-shadow);
+      font-weight: 700;
     }
     .hero p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
       max-width: 700px;
       color: var(--clr-hero-text);
       text-shadow: 1px 1px 3px var(--clr-hero-text-shadow);
@@ -301,29 +304,33 @@
     .btn-primary {
       background-color: var(--clr-accent);
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       border: none;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: 600;
       border-radius: 4px;
-      transition: background-color var(--transition-speed);
+      transition: background-color var(--transition-speed), transform 0.2s;
     }
     .btn-primary:hover {
       background-color: var(--clr-accent-hover);
+      transform: scale(1.03);
     }
 
     /* Section Shared Styles */
     .section {
-      padding: 3rem 1rem;
+      padding: 3.5rem 1rem;
     }
     .section h2 {
       text-align: center;
       margin-bottom: 2rem;
       color: var(--clr-brand);
-      font-size: 2rem;
+      font-size: 2.2rem;
+      font-weight: 700;
     }
     .section p {
       margin-bottom: 1rem;
+      line-height: 1.7;
     }
 
     /* "fade-in" reusable animation classes */
@@ -337,7 +344,7 @@
       transform: translateY(0);
     }
 
-    /* HOW IT WORKS - Shorter Layout */
+    /* HOW IT WORKS */
     .how-it-works-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -348,22 +355,23 @@
       background-color: var(--clr-card);
       border: 1px solid var(--clr-border);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1.8rem;
       transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     }
     .how-step:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     .how-step i {
-      font-size: 2rem; /* Font Awesome icon sizing */
+      font-size: 2.2rem; 
       color: var(--clr-accent);
       margin-bottom: 0.8rem;
     }
     .how-step h3 {
       color: var(--clr-brand);
       margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
 
     /* WHY CHOOSE US */
@@ -376,7 +384,7 @@
       background-color: var(--clr-card);
       border: 1px solid var(--clr-border);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1.8rem;
       transition: transform var(--transition-speed), box-shadow var(--transition-speed);
       border-left: 6px solid var(--clr-accent);
       display: flex;
@@ -386,26 +394,29 @@
     }
     .reason-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     .reason-card h3 {
       color: var(--clr-brand);
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
     .reason-card p {
       flex: 1;
+      font-size: 0.95rem;
     }
 
     /* WHAT DATA WE PROVIDE (Redesigned) */
     .data-section {
       background-color: var(--clr-bg-secondary);
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
     }
     .data-intro {
       max-width: 700px;
       margin: 0 auto 2rem;
-      line-height: 1.5;
+      line-height: 1.7;
     }
     .data-list {
       display: grid;
@@ -420,12 +431,12 @@
       background-color: var(--clr-card);
       border: 1px solid var(--clr-border);
       border-radius: 8px;
-      padding: 1rem;
+      padding: 1.3rem;
       transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     }
     .data-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     .data-icon {
       font-size: 2rem;
@@ -439,14 +450,14 @@
       margin-bottom: 0.4rem;
       color: var(--clr-brand);
       font-size: 1.1rem;
+      font-weight: 600;
     }
     .data-details p {
       font-size: 0.95rem;
-      margin-bottom: 0.5rem;
       line-height: 1.4;
     }
 
-    /* PRICING Section */
+    /* PRICING */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -463,13 +474,14 @@
     }
     .pricing-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     .pricing-header {
       background-color: var(--clr-brand);
       color: #fff;
-      padding: 1rem;
+      padding: 1.2rem;
       text-align: center;
+      font-weight: 600;
     }
     .pricing-body {
       padding: 1.5rem;
@@ -480,9 +492,10 @@
       text-align: center;
     }
     .plan-price {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin: 1rem 0;
       color: var(--clr-brand);
+      font-weight: 700;
     }
     .plan-features {
       margin-bottom: 1rem;
@@ -514,6 +527,7 @@
       list-style: none;
       max-width: 600px;
       margin: 1rem auto;
+      line-height: 1.7;
     }
     .checklist li {
       position: relative;
@@ -536,11 +550,15 @@
     }
     .faq-question {
       background-color: var(--clr-bg-secondary);
-      padding: 0.75rem 1rem;
+      padding: 0.85rem 1rem;
       font-weight: 600;
       color: var(--clr-brand);
       cursor: pointer;
       position: relative;
+      transition: background-color var(--transition-speed);
+    }
+    .faq-question:hover {
+      background-color: #eaeaea;
     }
     .faq-answer {
       max-height: 0;
@@ -553,7 +571,8 @@
       padding: 0.75rem 0;
     }
     .faq-item.active .faq-answer {
-      max-height: 500px; /* large enough to accommodate text */
+      max-height: 500px;
+      padding: 0.75rem 1rem;
     }
 
     /* ABOUT Section */
@@ -570,11 +589,11 @@
       margin: 2rem auto;
       background-color: var(--clr-bg-secondary);
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1.8rem;
       border: 1px solid var(--clr-border);
     }
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.3rem;
       text-align: left;
     }
     .form-label {
@@ -582,7 +601,8 @@
       margin-bottom: 0.4rem;
       font-weight: 500;
     }
-    .form-input, .form-textarea {
+    .form-input,
+    .form-textarea {
       width: 100%;
       padding: 0.75rem;
       border: 1px solid var(--clr-border);
@@ -603,11 +623,13 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color var(--transition-speed);
+      transition: background-color var(--transition-speed), transform 0.2s;
       margin-top: 1rem;
+      font-weight: 600;
     }
     .form-submit:hover {
       background-color: var(--clr-brand-light);
+      transform: scale(1.03);
     }
     #form-success-message {
       margin-top: 1rem;
@@ -641,29 +663,36 @@
       color: var(--clr-accent);
     }
     .footer-disclaimer {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--clr-text);
       margin-top: 1rem;
     }
     .scroll-top {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       font-size: 0.9rem;
       color: var(--clr-accent);
       cursor: pointer;
-      transition: color var(--transition-speed);
+      transition: color var(--transition-speed), transform 0.2s;
     }
     .scroll-top:hover {
       color: var(--clr-accent-hover);
+      transform: scale(1.05);
     }
 
     /* Responsive Adjustments */
     @media (max-width: 992px) {
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .hero p {
         font-size: 1rem;
+      }
+      .section h2 {
+        font-size: 2rem;
+      }
+      .plan-price {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -693,10 +722,10 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <!-- Mobile-specific CTA and Theme Toggle -->
-          <li class="mobile-cta" style="display: none;">
+          <li class="mobile-cta">
             <a href="#contact" class="header-cta">Get in Touch</a>
           </li>
-          <li class="mobile-theme-toggle" style="display: none;">
+          <li class="mobile-theme-toggle">
             <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
           </li>
         </ul>
@@ -735,7 +764,7 @@
           <i class="fa fa-bullhorn"></i>
           <h3>1. We Reach Out</h3>
           <p>
-            Our team directly contacts potential prospects to confirm genuine interest in insurance or KiwiSaver.
+            Our team directly finds and contacts potential prospects to confirm genuine interest in insurance or KiwiSaver.
           </p>
         </div>
         <div class="how-step">
@@ -1233,8 +1262,7 @@
   <script>
     // Toggle Mobile Navigation
     function toggleMobileNav() {
-      const nav = document.getElementById('mainNav');
-      const navUl = nav.querySelector('ul');
+      const navUl = document.querySelector('#mainNav ul');
       const hamburger = document.querySelector('.hamburger');
       const isOpen = navUl.classList.contains('show');
       
@@ -1254,11 +1282,11 @@
         element.scrollIntoView({ behavior: 'smooth' });
       }
       // Close the mobile nav if open
-      const nav = document.getElementById('mainNav');
-      const navUl = nav.querySelector('ul');
+      const navUl = document.querySelector('#mainNav ul');
+      const hamburger = document.querySelector('.hamburger');
       if (navUl.classList.contains('show')) {
         navUl.classList.remove('show');
-        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
     }
 
@@ -1331,5 +1359,3 @@
 </body>
 </html>
 
-</body>
-</html>
