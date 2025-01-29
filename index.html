@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <!-- 
     ===========================================================
-    Title: Leadspresso - Redesigned with Dark/Light Toggle
-    Description: Landing page for Leadspresso, NZ lead generation
+    Title: Leadspresso (Dark Mode by Default)
+    Description: Landing page for Leadspresso
     Author: Leadspresso Team + ChatGPT
     Date: 2025-01-29
     ===========================================================
@@ -30,13 +30,13 @@
 
     /* 
       Light & Dark Theme Variables
-      We'll toggle a "dark" class on <html> to switch
+      We start with <html class="dark">, so dark is default.
     */
     :root {
       --font-body: 'Poppins', sans-serif;
       --transition-speed: 0.3s;
 
-      /* Light Theme */
+      /* Light Theme (will apply if 'dark' class is removed) */
       --clr-bg: #ffffff;
       --clr-bg-secondary: #f9f9f9;
       --clr-text: #333333;
@@ -60,8 +60,8 @@
       --clr-card: #2a2a2a;
       --clr-border: #3a3a3a;
 
-      --clr-brand: #9d857f;
-      --clr-brand-light: #bca39d;
+      --clr-brand: #9d857f;       /* coffee brown in dark mode */
+      --clr-brand-light: #bca39d; /* lighter coffee in dark mode */
     }
 
     /* Global HTML & Body */
@@ -187,7 +187,7 @@
         rgba(0,0,0,0.3),
         rgba(0,0,0,0.3)
       ),
-      url('https://via.placeholder.com/1600x900/4b2e2e/ffffff?text=Hero+Image'); 
+      url('https://i.imgur.com/LfJqS6q.jpeg'); /* Original Hero Background */
       background-size: cover;
       background-position: center;
       color: #fff;
@@ -270,6 +270,8 @@
       border-radius: 8px;
       padding: 1.5rem;
       transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      /* Add left accent line */
+      border-left: 6px solid var(--clr-accent);
     }
     .reason-card:hover {
       transform: translateY(-3px);
@@ -489,7 +491,11 @@
     <div class="container nav-wrapper">
       <!-- Logo -->
       <a href="#hero" class="logo">
-        <img src="https://via.placeholder.com/80x50?text=Logo" alt="Leadspresso Logo" />
+        <img 
+          src="https://i.imgur.com/MrVE7aA.png" 
+          alt="Leadspresso Logo" 
+          loading="lazy"
+        />
         Leadspresso
       </a>
 
@@ -533,21 +539,39 @@
       <div class="steps-grid">
         <!-- Step 1 -->
         <div class="step-card">
-          <img src="https://via.placeholder.com/60?text=S1" alt="Step 1" />
+          <img 
+            src="https://i.imgur.com/zhhnmmO.png" 
+            alt="Outbound Engagement Icon" 
+            loading="lazy"
+          />
           <h3>1. One-on-One Cold Outreach</h3>
-          <p>We personally reach out to potential clients through direct, one-on-one communication—introducing them to the process and explaining the value before they arrive at your table.</p>
+          <p>
+            We personally reach out to potential clients through direct, one-on-one communication—introducing them to the process and explaining the value before they arrive at your table.
+          </p>
         </div>
         <!-- Step 2 -->
         <div class="step-card">
-          <img src="https://via.placeholder.com/60?text=S2" alt="Step 2" />
+          <img 
+            src="https://i.imgur.com/DrWFRz4.png" 
+            alt="Data Collection Icon" 
+            loading="lazy"
+          />
           <h3>2. Data Collection</h3>
-          <p>We filter out anyone who’s not actively interested or who doesn’t meet our strict criteria, ensuring you receive only piping-hot, ready-to-talk leads—no stale beans here.</p>
+          <p>
+            We filter out anyone who’s not actively interested or who doesn’t meet our strict criteria, ensuring you receive only piping-hot, ready-to-talk leads—no stale beans here.
+          </p>
         </div>
         <!-- Step 3 -->
         <div class="step-card">
-          <img src="https://via.placeholder.com/60?text=S3" alt="Step 3" />
+          <img 
+            src="https://i.imgur.com/fFstdNr.png" 
+            alt="Delivery & Conversion Icon" 
+            loading="lazy"
+          />
           <h3>3. Delivery & Conversion</h3>
-          <p>These freshly brewed, high-quality leads are delivered while they’re still hot—straight to your inbox or calendar. Choose to pay per lead or per meeting, and we'll handle the rest.</p>
+          <p>
+            These freshly brewed, high-quality leads are delivered while they’re still hot—straight to your inbox or calendar. Choose to pay per lead or per meeting, and we'll handle the rest.
+          </p>
         </div>
       </div>
     </div>
@@ -561,32 +585,58 @@
         <!-- Reason 1 -->
         <div class="reason-card">
           <h3>Quality Over Quantity</h3>
-          <p>We focus on ensuring every lead is a strong match. You pay only for those who show genuine interest and meet our proven recipe for a good lead.</p>
+          <p>
+            We focus on ensuring every lead is a strong match. You pay only 
+            for those who show genuine interest and meet our proven recipe 
+            for a good lead.
+          </p>
         </div>
         <!-- Reason 2 -->
         <div class="reason-card">
           <h3>Outbound Specialists</h3>
-          <p>Our “espresso machine” is fueled by proactive outreach—untouched by shifting algorithms or ad platform quirks. Because we connect with leads personally, they truly understand the process.</p>
+          <p>
+            Our “espresso machine” is fueled by proactive outreach—untouched 
+            by shifting algorithms or ad platform quirks. Because we connect 
+            with leads personally, they truly understand the process.
+          </p>
         </div>
         <!-- Reason 3 -->
         <div class="reason-card">
           <h3>Pay Per Lead or Meeting</h3>
-          <p>You control the flavor: choose to pay per lead or per attended meeting. Whether you want to ramp up volume quickly or pay only when someone actually meets with you, we have a model to suit.</p>
+          <p>
+            You control the flavor: choose to pay per lead or for actual 
+            attended meetings. Whether you want to ramp up volume quickly 
+            or pay only when someone actually meets with you, we have a model 
+            to suit.
+          </p>
         </div>
         <!-- Reason 4 -->
         <div class="reason-card">
           <h3>NZ-Focused Financial Experts</h3>
-          <p>We’ve generated thousands of KiwiSaver and personal insurance leads for over 70 advisers. We know how to reach the right people, say the right things, and filter out the rest.</p>
+          <p>
+            We’ve generated thousands of KiwiSaver and personal insurance 
+            leads (including life, health, income, trauma, mortgage) for over 
+            70 advisers. We know how to reach the right people, say the right 
+            things, and filter out the rest.
+          </p>
         </div>
         <!-- Reason 5 -->
         <div class="reason-card">
           <h3>Data-Driven Refinement</h3>
-          <p>Every outreach, interaction, and conversion is an opportunity to learn. We refine our approach using data insights, so you benefit from higher-quality leads over time.</p>
+          <p>
+            Every outreach, interaction, and conversion is an opportunity 
+            to learn. We refine our approach using data insights, so you 
+            benefit from higher-quality leads over time.
+          </p>
         </div>
         <!-- Reason 6 -->
         <div class="reason-card">
           <h3>Personal Touch vs. Online Ads</h3>
-          <p>In a world flooded by digital ads, we cut through the noise with real conversations. This genuine connection fosters trust and yields higher-quality leads than generic “click-and-forget” ads.</p>
+          <p>
+            In a world flooded by digital ads, we cut through the noise 
+            with real conversations. This genuine connection fosters trust 
+            and yields higher-quality leads than generic “click-and-forget” ads.
+          </p>
         </div>
       </div>
     </div>
@@ -597,7 +647,8 @@
     <div class="container">
       <h2>Pricing Options</h2>
       <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-        Straightforward and flexible—pick the plan that fits your practice best. Get your leads “express” at the price that suits you.
+        Straightforward and flexible—pick the plan that fits your practice best. 
+        Get your leads “express” at the price that suits you.
       </p>
       <div class="pricing-grid">
         <!-- Plan: Pay Per Lead -->
@@ -650,7 +701,8 @@
         </div>
       </div>
       <p style="margin-top: 2rem; text-align: center; color: var(--clr-brand);">
-        <strong>Note:</strong> KiwiSaver leads often come at a lower price. Contact us for specialized pricing on KiwiSaver-only leads.
+        <strong>Note:</strong> KiwiSaver leads often come at a lower price. 
+        Contact us for specialized pricing on KiwiSaver-only leads.
       </p>
     </div>
   </section>
@@ -711,13 +763,21 @@
     <div class="container">
       <h2>About Leadspresso</h2>
       <p>
-        Leadspresso was brewed by a team with deep knowledge of the NZ market. We’ve helped over 70 advisers secure consistent, qualified leads—just like serving the perfect espresso shot time and again.
+        Leadspresso was brewed by a team with deep knowledge of the NZ market. 
+        We’ve helped over 70 advisers secure consistent, qualified leads—just 
+        like serving the perfect espresso shot time and again.
       </p>
       <p>
-        We understand the challenges: evolving regulations, unpredictable advertising costs, and the feast-or-famine cycle of inbound leads. By focusing on proactive outbound outreach—our unique “espresso bar” of lead generation—we deliver a steady stream of hot prospects without hidden fees or sudden changes.
+        We understand the challenges: evolving regulations, unpredictable 
+        advertising costs, and the feast-or-famine cycle of inbound leads. 
+        By focusing on proactive outbound outreach—our unique “espresso bar” 
+        of lead generation—we deliver a steady stream of hot prospects without 
+        hidden fees or sudden changes.
       </p>
       <p>
-        Join us in fueling the NZ financial advisory sector with top-tier leads and unbeatable, express service. Let’s keep your pipeline buzzing with freshly roasted prospects.
+        Join us in fueling the NZ financial advisory sector with top-tier leads 
+        and unbeatable, express service. Let’s keep your pipeline buzzing with 
+        freshly roasted prospects.
       </p>
     </div>
   </section>
@@ -802,7 +862,10 @@
   <section class="disclaimer-section" id="disclaimer">
     <div class="container">
       <p>
-        <strong>Disclaimer:</strong> Leadspresso is not a licensed financial adviser. We connect individuals with qualified advisers across New Zealand. All advice and services are provided by registered professionals. We comply with the Privacy Act 2020 in collecting and handling data.
+        <strong>Disclaimer:</strong> Leadspresso is not a licensed financial adviser. 
+        We connect individuals with qualified advisers across New Zealand. All advice 
+        and services are provided by registered professionals. We comply with the 
+        Privacy Act 2020 in collecting and handling data.
       </p>
     </div>
   </section>
@@ -858,7 +921,7 @@
         services: document.getElementById('services').value,
         message: document.getElementById('message').value
       };
-      // In production, send formData to server or Airtable, etc.
+      // In production, send formData to your server or Airtable, etc.
       console.log("Form Data:", formData);
 
       // Show success message
@@ -871,4 +934,3 @@
   </script>
 </body>
 </html>
-
