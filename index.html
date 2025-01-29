@@ -127,22 +127,13 @@
       list-style: none;
       transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
       overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: var(--clr-bg-secondary);
-      border: 1px solid var(--clr-border);
-      padding: 1rem;
-      width: 200px;
-      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
-      flex-direction: column;
+      max-height: none; /* Default for desktop */
+      opacity: 1;
+      flex-direction: row; /* Default for desktop */
     }
     nav ul.show {
       opacity: 1;
-      max-height: 500px; /* Arbitrary large value to allow full menu */
+      max-height: none;
     }
     nav a {
       text-decoration: none;
@@ -225,6 +216,7 @@
         max-height: 0;
         transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
         overflow: hidden;
+        flex-direction: column;
       }
       nav ul.show {
         opacity: 1;
@@ -237,17 +229,15 @@
       .header-cta, .theme-toggle {
         display: none;
       }
-      /* Show CTA and Theme Toggle inside the dropdown */
-      nav ul .mobile-cta, nav ul .mobile-theme-toggle {
+      /* Show CTA inside the dropdown */
+      nav ul .mobile-cta {
         display: block;
-      }
-      .mobile-cta {
         margin-top: 1rem;
         text-align: center;
       }
-      .mobile-theme-toggle {
-        margin-top: 0.5rem;
-        text-align: center;
+      /* Hide Theme Toggle in dropdown */
+      nav ul .mobile-theme-toggle {
+        display: none;
       }
     }
 
@@ -578,6 +568,47 @@
     }
 
     /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        background-color: var(--clr-bg-secondary);
+        border: 1px solid var(--clr-border);
+        padding: 1rem;
+        width: 200px;
+        border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
+        overflow: hidden;
+      }
+      nav ul.show {
+        opacity: 1;
+        max-height: 500px; /* Large enough to display all items */
+      }
+      .hamburger {
+        display: flex;
+      }
+      /* Hide original CTA and Theme Toggle in header */
+      .header-cta, .theme-toggle {
+        display: none;
+      }
+      /* Show CTA inside the dropdown */
+      nav ul .mobile-cta {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      /* Hide Theme Toggle in dropdown */
+      nav ul .mobile-theme-toggle {
+        display: none;
+      }
+    }
+
     @media (max-width: 992px) {
       .hero h1 {
         font-size: 2rem;
@@ -611,26 +642,24 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <!-- Mobile-specific CTA and Theme Toggle -->
+          <!-- Mobile-specific CTA only -->
           <li class="mobile-cta" style="display: none;">
-            <a href="#contact" class="header-cta">Get in Touch</a>
+            <a href="#contact" class="header-cta">Get Started</a>
           </li>
-          <li class="mobile-theme-toggle" style="display: none;">
-            <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
-          </li>
+          <!-- Remove mobile-theme-toggle to exclude Theme button from dropdown -->
         </ul>
       </nav>
 
-      <!-- Buttons and Hamburger Menu -->
-      <div class="header-buttons">
-        <a href="#contact" class="header-cta">Get in Touch</a>
-        <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
-        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+      <!-- Hamburger Menu -->
+      <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
+
+      <!-- Theme Toggle (Visible on Desktop Only) -->
+      <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+      <!-- Note: The Theme toggle is outside the nav to ensure it's visible on desktop and hidden on mobile via CSS -->
     </div>
   </header>
 
@@ -640,7 +669,7 @@
     <p>
       Experience a smooth blend of speed and quality with Leadspresso. We serve up verified KiwiSaver and personal insurance prospects (life, health, income, trauma, mortgage) for NZ advisers who want to scale—minus the usual hassle.
     </p>
-    <button class="btn-primary" onclick="scrollToSection('contact')">Get in Touch</button>
+    <button class="btn-primary" onclick="scrollToSection('contact')">Get Started</button>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -1007,19 +1036,18 @@
     function toggleMobileNav() {
       const nav = document.getElementById('mainNav');
       const navUl = nav.querySelector('ul');
-      const hamburger = document.querySelector('.hamburger');
       const isOpen = navUl.classList.contains('show');
       
       if (isOpen) {
         // Remove 'show' class to initiate closing
         navUl.classList.remove('show');
         // Update aria-expanded attribute
-        hamburger.setAttribute('aria-expanded', 'false');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
       } else {
         // Add 'show' class to initiate opening
         navUl.classList.add('show');
         // Update aria-expanded attribute
-        hamburger.setAttribute('aria-expanded', 'true');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'true');
       }
     }
 
@@ -1098,4 +1126,3 @@
   </script>
 </body>
 </html>
-
