@@ -141,8 +141,8 @@
       flex-direction: column;
     }
     nav ul.show {
-      max-height: 500px; /* Arbitrary large value to allow full menu */
       opacity: 1;
+      max-height: 500px; /* Arbitrary large value to allow full menu */
     }
     nav a {
       text-decoration: none;
@@ -190,7 +190,7 @@
       border-color: var(--clr-accent);
     }
 
-    /* Mobile Nav (Hamburger) for narrower widths */
+    /* Hamburger Menu */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -613,7 +613,7 @@
           <li><a href="#contact">Contact</a></li>
           <!-- Mobile-specific CTA and Theme Toggle -->
           <li class="mobile-cta" style="display: none;">
-            <a href="#contact" class="header-cta">Get Started</a>
+            <a href="#contact" class="header-cta">Get in Touch</a>
           </li>
           <li class="mobile-theme-toggle" style="display: none;">
             <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
@@ -621,11 +621,15 @@
         </ul>
       </nav>
 
-      <!-- Hamburger Menu -->
-      <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+      <!-- Buttons and Hamburger Menu -->
+      <div class="header-buttons">
+        <a href="#contact" class="header-cta">Get in Touch</a>
+        <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
+        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation" role="button" aria-expanded="false">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
   </header>
@@ -636,7 +640,7 @@
     <p>
       Experience a smooth blend of speed and quality with Leadspresso. We serve up verified KiwiSaver and personal insurance prospects (life, health, income, trauma, mortgage) for NZ advisers who want to scale—minus the usual hassle.
     </p>
-    <button class="btn-primary" onclick="scrollToSection('contact')">Get Started</button>
+    <button class="btn-primary" onclick="scrollToSection('contact')">Get in Touch</button>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -1003,18 +1007,19 @@
     function toggleMobileNav() {
       const nav = document.getElementById('mainNav');
       const navUl = nav.querySelector('ul');
+      const hamburger = document.querySelector('.hamburger');
       const isOpen = navUl.classList.contains('show');
       
       if (isOpen) {
         // Remove 'show' class to initiate closing
         navUl.classList.remove('show');
         // Update aria-expanded attribute
-        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-expanded', 'false');
       } else {
         // Add 'show' class to initiate opening
         navUl.classList.add('show');
         // Update aria-expanded attribute
-        document.querySelector('.hamburger').setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-expanded', 'true');
       }
     }
 
